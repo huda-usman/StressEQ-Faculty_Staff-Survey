@@ -646,19 +646,41 @@
     }
 
     .skip-btn {
-      display: inline-block;
-      margin-top: 6px;
-      font-size: 0.8em;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      margin-top: 8px;
+      font-size: 0.82em;
       color: var(--muted);
       background: none;
-      border: none;
+      border: 1.5px dashed var(--border);
+      border-radius: 20px;
       cursor: pointer;
-      text-decoration: underline;
-      padding: 0;
+      padding: 5px 14px;
+      transition: all 0.2s;
     }
 
     .skip-btn:hover {
       color: var(--primary);
+      border-color: var(--primary);
+      background: rgba(79,70,229,0.06);
+    }
+
+    /* Highlighted state after user clicks Skip */
+    .skip-btn.skipped {
+      background: #F1F5F9;
+      border: 1.5px solid #94A3B8;
+      color: #475569;
+      font-weight: 600;
+      pointer-events: none;
+    }
+
+    /* Options area greyed out after skip */
+    .options-disabled {
+      opacity: 0.35;
+      pointer-events: none;
+      user-select: none;
+      transition: opacity 0.25s;
     }
   </style>
 </head>
@@ -816,17 +838,17 @@
         <div class="card">
           <span class="step-badge">Section 2 of 9 · Personal context</span>
           <h2>A little about your personal life</h2>
-          <p class="lead">Optional questions to help understand how family and lifestyle factors interact with work stress. Skip any you'd prefer not to answer.</p>
+          <p class="lead">Questions to help understand how family and lifestyle factors interact with work stress.</p>
 
           <div class="callout" style="margin-bottom:6px;">
             <strong>Why we ask:</strong> Caring responsibilities, family status, and local support structures play a massive role in balancing heavy institutional workloads.
           </div>
 
           <div class="question">
-            <label class="q-label"><span class="qnum">Q7.</span> Which best describes your relationship status? <span class="hint">(optional)</span></label>
-            <button type="button" class="skip-btn" onclick="skipQuestion('relationship_status','5')">Skip this question</button>
+            <label class="q-label"><span class="qnum">Q7.</span> Which best describes your relationship status?</label>
+
             <div class="radio-group" style="margin-top:8px;">
-              <div class="radio-card"><input type="radio" id="rs1" name="relationship_status" value="1" /><label for="rs1">Single</label></div>
+              <div class="radio-card"><input type="radio" id="rs1" name="relationship_status" value="1" required /><label for="rs1">Single</label></div>
               <div class="radio-card"><input type="radio" id="rs2" name="relationship_status" value="2" /><label for="rs2">In a relationship</label></div>
               <div class="radio-card"><input type="radio" id="rs3" name="relationship_status" value="3" /><label for="rs3">Married / Partnered</label></div>
               <div class="radio-card"><input type="radio" id="rs4" name="relationship_status" value="4" /><label for="rs4">Divorced / Separated / Widowed</label></div>
@@ -1172,7 +1194,7 @@
 
           <div style="background:var(--soft); border-radius:12px; padding:16px; margin:20px 0; font-size:0.88em; color:var(--muted); line-height:1.6;">
             🔒 Your answers are stored anonymously under a random ID — never linked to your name or university account.<br>
-            📊 Results will be used to train the StressEQ AI and shared only as group statistics in our FYP.
+            📊 Results will be used to validate the StressEQ AI and shared only as group statistics in our FYP.
           </div>
 
           <div style="background:var(--soft); border-radius:12px; padding:12px 16px; margin:12px 0; font-size:0.83em; color:var(--muted);">
@@ -1442,21 +1464,58 @@
       inp.style.borderColor = inp.validity.valid ? '#10B981' : '#DC2626';
     }
 
-    function skipQuestion(fieldName, defaultValue) {
-      data[fieldName] = defaultValue;
-      const match = document.querySelector(`input[name="${fieldName}"][value="${defaultValue}"]`);
-      if (match) {
-        match.checked = true;
-        match.dispatchEvent(new Event('change', { bubbles: true }));
+    // ── Skip helpers ────────────────────────────────────────────
+    function markSkipBtn(btn) {
+      if (!btn) return;
+      btn.textContent = '✓ Skipped';
+      btn.classList.add('skipped');
+    }
+
+    // Disable and grey-out every input option inside the question container
+    function disableQuestionOptions(questionEl) {
+      if (!questionEl) return;
+      questionEl.querySelectorAll('input[type="radio"], input[type="checkbox"]').forEach(inp => {
+        inp.disabled = true;
+        inp.checked  = false;
+      });
+      ['radio-group','check-grid','likert','freq4','row-2'].forEach(cls => {
+        const el = questionEl.querySelector('.' + cls);
+        if (el) el.classList.add('options-disabled');
+      });
+    }
+
+    function scrollToNextQuestion(currentQuestion) {
+      if (!currentQuestion) return;
+      let el = currentQuestion.nextElementSibling;
+      while (el) {
+        if (el.classList.contains('question')) {
+          el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          return;
+        }
+        el = el.nextElementSibling;
       }
+      const btnRow = currentQuestion.closest('.card')?.querySelector('.button-row');
+      if (btnRow) btnRow.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    function skipQuestion(fieldName) {
+      data[fieldName] = '';
+      const btn = document.querySelector(`.skip-btn[onclick*="${fieldName}"]`);
+      const currentQ = btn?.closest('.question');
+      disableQuestionOptions(currentQ);
+      markSkipBtn(btn);
+      scrollToNextQuestion(currentQ);
     }
 
     function skipSubstanceUse() {
+      const btn = document.querySelector('.skip-btn[onclick*="skipSubstanceUse"]');
+      const currentQ = btn?.closest('.question');
+      disableQuestionOptions(currentQ);          // disables & unchecks all inputs
+      // Tick "None" AFTER disabling — validation checks :checked, disabled inputs are still matched
       const noneCb = document.getElementById('sub_none');
-      if (noneCb) {
-        noneCb.checked = true;
-        noneCb.dispatchEvent(new Event('change', { bubbles: true }));
-      }
+      if (noneCb) { noneCb.checked = true; }
+      markSkipBtn(btn);
+      scrollToNextQuestion(currentQ);
     }
 
     function validateStep(step) {
