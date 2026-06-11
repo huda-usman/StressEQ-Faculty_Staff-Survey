@@ -301,13 +301,14 @@
 
     /* PHQ/GAD 0-3 scale */
     .freq4 {
-      display: flex;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
       gap: 6px;
       margin-top: 6px;
     }
 
     .freq4-item {
-      flex: 1;
+      display: flex;
     }
 
     .freq4-item input {
@@ -315,8 +316,12 @@
     }
 
     .freq4-item label {
-      display: block;
-      padding: 12px 8px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      padding: 12px 4px;
       border: 1.5px solid var(--border);
       border-radius: 10px;
       cursor: pointer;
