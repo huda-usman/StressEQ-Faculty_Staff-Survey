@@ -347,9 +347,15 @@
     /* Checkbox grid */
     .check-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 8px;
       margin-top: 6px;
+      align-items: stretch;
+    }
+
+    .check-item {
+      display: flex;
+      width: 100%;
     }
 
     .check-item input {
@@ -357,7 +363,12 @@
     }
 
     .check-item label {
-      display: block;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      min-height: 64px;
       padding: 11px 14px;
       border: 1.5px solid var(--border);
       border-radius: 10px;
@@ -367,6 +378,23 @@
       color: var(--text);
       transition: all 0.15s;
       user-select: none;
+    }
+
+    #topPicks {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    #topPicks .check-item {
+      flex: 1 1 200px;
+      max-width: calc(33.333% - 8px);
+    }
+
+    @media (max-width: 650px) {
+      #topPicks .check-item {
+        max-width: 100%;
+      }
     }
 
     .check-item label:hover {
@@ -1062,6 +1090,20 @@
             </div>
           </div>
 
+          <hr class="section-divider" />
+
+          <!-- Q: Therapy / Counseling History -->
+          <div class="question">
+            <label class="q-label"><span class="qnum">Q10.</span> Have you ever taken therapy or counseling services, or are you currently receiving them?</label>
+            <div class="radio-group long-options" style="margin-top:8px;">
+              <div class="radio-card"><input type="radio" id="th1" name="therapy_history" value="Yes, currently receiving support" required /><label for="th1">Yes, currently receiving support</label></div>
+              <div class="radio-card"><input type="radio" id="th2" name="therapy_history" value="Yes, received support in the past" /><label for="th2">Yes, received support in the past</label></div>
+              <div class="radio-card"><input type="radio" id="th3" name="therapy_history" value="No, but I have considered it" /><label for="th3">No, but I have considered it</label></div>
+              <div class="radio-card"><input type="radio" id="th4" name="therapy_history" value="No, and I have never felt the need" /><label for="th4">No, and I have never felt the need</label></div>
+              <div class="radio-card"><input type="radio" id="th5" name="therapy_history" value="Prefer not to say" /><label for="th5">Prefer not to say</label></div>
+            </div>
+          </div>
+
           <div class="button-row">
             <button type="button" class="btn-secondary" onclick="prevStep()">← Back</button>
             <button type="button" class="btn-primary" onclick="nextStep()">Next →</button>
@@ -1077,7 +1119,7 @@
           <p class="lead">These questions cover emotional energy and productivity impacts at work.</p>
 
           <div class="question">
-            <label class="q-label"><span class="qnum">Q10.</span> How often do you feel exhausted by your work?</label>
+            <label class="q-label"><span class="qnum">Q11.</span> How often do you feel exhausted by your work?</label>
             <div class="radio-group">
               <div class="radio-card"><input type="radio" id="we1" name="work_exhaustion" value="1" required /><label for="we1">Never</label></div>
               <div class="radio-card"><input type="radio" id="we2" name="work_exhaustion" value="2" /><label for="we2">Rarely</label></div>
@@ -1088,7 +1130,7 @@
           </div>
 
           <div class="question">
-            <label class="q-label"><span class="qnum">Q11.</span> How often do you feel emotionally drained by your work?</label>
+            <label class="q-label"><span class="qnum">Q12.</span> How often do you feel emotionally drained by your work?</label>
             <div class="radio-group">
               <div class="radio-card"><input type="radio" id="et1" name="emotional_toll" value="1" required /><label for="et1">Never</label></div>
               <div class="radio-card"><input type="radio" id="et2" name="emotional_toll" value="2" /><label for="et2">Rarely</label></div>
@@ -1100,7 +1142,7 @@
           </div>
 
           <div class="question">
-            <label class="q-label"><span class="qnum">Q12.</span> How often has stress or burnout reduced your work productivity?</label>
+            <label class="q-label"><span class="qnum">Q13.</span> How often has stress or burnout reduced your work productivity?</label>
             <div class="radio-group">
               <div class="radio-card"><input type="radio" id="pl0" name="productivity_loss" value="0" required /><label for="pl0">Not at all / Not applicable</label></div>
               <div class="radio-card"><input type="radio" id="pl1" name="productivity_loss" value="1" /><label for="pl1">Never</label></div>
@@ -1124,7 +1166,7 @@
           <p class="lead">To what extent are the following factors in your stress or burnout?</p>
 
           <div class="question">
-            <label class="q-label"><span class="qnum">Q13.</span> Discrimination or unfair treatment</label>
+            <label class="q-label"><span class="qnum">Q14.</span> Discrimination or unfair treatment</label>
             <div class="radio-group">
               <div class="radio-card"><input type="radio" id="bd1" name="burnout_discrimination" value="1" required /><label for="bd1">Not a factor</label></div>
               <div class="radio-card"><input type="radio" id="bd2" name="burnout_discrimination" value="2" /><label for="bd2">Minor factor</label></div>
@@ -1133,7 +1175,7 @@
           </div>
 
           <div class="question">
-            <label class="q-label"><span class="qnum">Q14.</span> Anxiety or persistent worry</label>
+            <label class="q-label"><span class="qnum">Q15.</span> Anxiety or persistent worry</label>
             <div class="radio-group">
               <div class="radio-card"><input type="radio" id="ba1" name="burnout_anxiety" value="1" required /><label for="ba1">Not a factor</label></div>
               <div class="radio-card"><input type="radio" id="ba2" name="burnout_anxiety" value="2" /><label for="ba2">Minor factor</label></div>
@@ -1142,7 +1184,7 @@
           </div>
 
           <div class="question">
-            <label class="q-label"><span class="qnum">Q15.</span> Grief, loss, or death of a loved one</label>
+            <label class="q-label"><span class="qnum">Q16.</span> Grief or loss</label>
             <div class="radio-group">
               <div class="radio-card"><input type="radio" id="bg1" name="burnout_grief" value="1" required /><label for="bg1">Not a factor</label></div>
               <div class="radio-card"><input type="radio" id="bg2" name="burnout_grief" value="2" /><label for="bg2">Minor factor</label></div>
@@ -1151,7 +1193,7 @@
           </div>
 
           <div class="question">
-            <label class="q-label"><span class="qnum">Q16.</span> Financial stress or concerns</label>
+            <label class="q-label"><span class="qnum">Q17.</span> Financial stress or concerns</label>
             <div class="radio-group">
               <div class="radio-card"><input type="radio" id="bf1" name="burnout_financial_stress" value="1" required /><label for="bf1">Not a factor</label></div>
               <div class="radio-card"><input type="radio" id="bf2" name="burnout_financial_stress" value="2" /><label for="bf2">Minor factor</label></div>
@@ -1160,7 +1202,7 @@
           </div>
 
           <div class="question">
-            <label class="q-label"><span class="qnum">Q17.</span> Sleep deprivation or lack of sleep</label>
+            <label class="q-label"><span class="qnum">Q18.</span> Sleep deprivation or lack of sleep</label>
             <div class="radio-group">
               <div class="radio-card"><input type="radio" id="bs1" name="burnout_sleep_deprivation" value="1" required /><label for="bs1">Not a factor</label></div>
               <div class="radio-card"><input type="radio" id="bs2" name="burnout_sleep_deprivation" value="2" /><label for="bs2">Minor factor</label></div>
@@ -1183,39 +1225,46 @@
           <p class="lead">Please rate how much you agree or disagree with the following statements regarding your institution. (1 = Strongly Disagree, 6 = Strongly Agree)</p>
 
           <div class="question">
-            <label class="q-label"><span class="qnum">Q18.</span> My institution cares about my mental health and well-being.</label>
+            <label class="q-label"><span class="qnum">Q19.</span> My institution cares about my mental health and well-being.</label>
             <div class="likert" id="icGroup"></div>
             <div class="likert-anchors"><span>Strongly Disagree</span><span>Strongly Agree</span></div>
           </div>
 
           <div class="question">
-            <label class="q-label"><span class="qnum">Q19.</span> I feel a sense of belonging at my institution.</label>
+            <label class="q-label"><span class="qnum">Q20.</span> I feel a sense of belonging at my institution.</label>
             <div class="likert" id="cbGroup"></div>
             <div class="likert-anchors"><span>Strongly Disagree</span><span>Strongly Agree</span></div>
           </div>
 
           <div class="question">
-            <label class="q-label"><span class="qnum">Q20.</span> I work in a hostile or negative environment.</label>
-            <div class="hint">A hostile environment means a workplace where you experience constant tension, bullying, or negative treatment from others.</div>
+            <label class="q-label"><span class="qnum">Q21.</span> I work in a hostile or negative environment at the institutional level.</label>
+            <div class="hint">This refers to the overall university/institution climate, policies, or systemic culture.</div>
             <div class="likert" id="hweGroup"></div>
             <div class="likert-anchors"><span>Strongly Disagree</span><span>Strongly Agree</span></div>
           </div>
 
           <div class="question">
-            <label class="q-label"><span class="qnum">Q21.</span> My institution provides adequate mental health services.</label>
+            <label class="q-label"><span class="qnum">Q22.</span> I work in a hostile or negative environment within my specific department or immediate working unit.</label>
+            <div class="hint">This refers to the climate, interactions, or treatment from colleagues, chairs, or supervisors in your immediate department (even if the institution as a whole is supportive).</div>
+            <div class="likert" id="dhwGroup"></div>
+            <div class="likert-anchors"><span>Strongly Disagree</span><span>Strongly Agree</span></div>
+          </div>
+
+          <div class="question">
+            <label class="q-label"><span class="qnum">Q23.</span> My institution provides adequate mental health services.</label>
             <div class="likert" id="amsGroup"></div>
             <div class="likert-anchors"><span>Strongly Disagree</span><span>Strongly Agree</span></div>
           </div>
 
           <div class="question">
-            <label class="q-label"><span class="qnum">Q22.</span> The climate at my institution supports anti-racism.</label>
+            <label class="q-label"><span class="qnum">Q24.</span> The climate at my institution supports anti-racism.</label>
             <div class="hint">Anti-racism means treating people of all races fairly and standing up against unfair treatment based on race.</div>
             <div class="likert" id="arcGroup"></div>
             <div class="likert-anchors"><span>Strongly Disagree</span><span>Strongly Agree</span></div>
           </div>
 
           <div class="question">
-            <label class="q-label"><span class="qnum">Q23.</span> I feel free to express my academic/professional opinions.</label>
+            <label class="q-label"><span class="qnum">Q25.</span> I feel free to express my academic/professional opinions.</label>
             <div class="likert" id="afGroup"></div>
             <div class="likert-anchors"><span>Strongly Disagree</span><span>Strongly Agree</span></div>
           </div>
@@ -1235,7 +1284,7 @@
           <p class="lead">Quick questions about exercise, chronic conditions, and substance habits.</p>
 
           <div class="question">
-            <label class="q-label"><span class="qnum">Q24.</span> In the <span style="color:#DC2626; font-weight:bold;">past week</span>, how many days did you exercise or walk for at least 30 minutes?</label>
+            <label class="q-label"><span class="qnum">Q26.</span> In the <span style="color:#DC2626; font-weight:bold;">past week</span>, how many days did you exercise or walk for at least 30 minutes?</label>
             <div class="radio-group">
               <div class="radio-card"><input type="radio" id="ex1" name="exercise_raw" value="1" required /><label for="ex1">0 days</label></div>
               <div class="radio-card"><input type="radio" id="ex2" name="exercise_raw" value="2" /><label for="ex2">1–2 days</label></div>
@@ -1246,7 +1295,7 @@
           </div>
 
           <div class="question">
-            <label class="q-label"><span class="qnum">Q25.</span> Do you have any diagnosed chronic health conditions?</label>
+            <label class="q-label"><span class="qnum">Q27.</span> Do you have any diagnosed chronic health conditions?</label>
             <div class="radio-group">
               <div class="radio-card"><input type="radio" id="chr0" name="chronic_illness" value="0" required /><label for="chr0">None</label></div>
               <div class="radio-card"><input type="radio" id="chr1" name="chronic_illness" value="1" /><label for="chr1">Mild <span class="hint">(e.g., asthma, high cholesterol)</span></label></div>
@@ -1256,7 +1305,7 @@
           </div>
 
           <div class="question" id="substanceUseQuestion">
-            <label class="q-label"><span class="qnum">Q26.</span> In the <span style="color:#DC2626; font-weight:bold;">past month</span>, did you use any of the following? <span class="hint">(tick all that apply)</span></label>
+            <label class="q-label"><span class="qnum">Q28.</span> In the <span style="color:#DC2626; font-weight:bold;">past month</span>, did you use any of the following? <span class="hint">(tick all that apply)</span></label>
             <button type="button" class="skip-btn" onclick="skipSubstanceUse()">Skip this question</button>
             <div class="check-grid" style="margin-top:8px;">
               <div class="check-item">
@@ -1339,7 +1388,7 @@
 
           <div class="question" style="background:linear-gradient(135deg,#EEF2FF,#FDF2F8); border:1px solid #C7D2FE; border-radius:16px; padding:20px;">
             <label class="q-label" style="font-size:1.1em; font-weight:800; color:var(--text); margin-bottom:12px; display:block; line-height:1.4;">
-              <span class="qnum">Q43.</span> Be honest — if StressEQ could <span style="color:var(--primary);">detect your stress levels rising</span> and suggest evidence-based coaching actions, would you use it?
+              <span class="qnum">Q46.</span> Be honest — if StressEQ could <span style="color:var(--primary);">detect your stress levels rising</span> and suggest evidence-based coaching actions, would you use it?
             </label>
             <div class="radio-group" style="margin-top:4px;">
               <div class="radio-card"><input type="radio" id="use1" name="would_use" value="Yes — I genuinely need something like this" required /><label for="use1">💯 Yes — I genuinely need something like this</label></div>
@@ -1348,7 +1397,7 @@
           </div>
 
           <div class="question">
-            <label class="q-label"><span class="qnum">Q44.</span> Of these, which matter MOST to YOUR stress? <span class="hint">(select all that apply)</span></label>
+            <label class="q-label"><span class="qnum">Q47.</span> Of these, which matter MOST to YOUR stress? <span class="hint">(select all that apply)</span></label>
             <div class="picker-counter" id="topPickCounter">0 selected</div>
             <div class="check-grid" id="topPicks">
               <div class="check-item"><input type="checkbox" id="top1" name="top" value="work_exhaustion" /><label for="top1">Work exhaustion</label></div>
@@ -1358,9 +1407,10 @@
               <div class="check-item"><input type="checkbox" id="top5" name="top" value="institutional_care" /><label for="top5">Institutional care</label></div>
               <div class="check-item"><input type="checkbox" id="top6" name="top" value="burnout_discrimination" /><label for="top6">Discrimination</label></div>
               <div class="check-item"><input type="checkbox" id="top7" name="top" value="burnout_anxiety" /><label for="top7">Anxiety or worry</label></div>
-              <div class="check-item"><input type="checkbox" id="top8" name="top" value="burnout_grief" /><label for="top8">Grief, loss, or death of a loved one</label></div>
+              <div class="check-item"><input type="checkbox" id="top8" name="top" value="burnout_grief" /><label for="top8">Grief or loss</label></div>
               <div class="check-item"><input type="checkbox" id="top9" name="top" value="chronic_illness" /><label for="top9">Chronic illness</label></div>
               <div class="check-item"><input type="checkbox" id="top10" name="top" value="campus_belonging" /><label for="top10">Campus belonging</label></div>
+              <div class="check-item"><input type="checkbox" id="top11" name="top" value="interpersonal_conflict" /><label for="top11">Interpersonal conflict</label></div>
             </div>
           </div>
 
@@ -1444,7 +1494,8 @@
       "Feeling like a failure, or like you've let yourself or others down",
       "Trouble concentrating (studying, reading, watching something)",
       "Moving noticeably slower than usual — OR feeling unusually restless",
-      "Thoughts that life isn't worth living, or of harming yourself"
+      "Thoughts that life isn't worth living",
+      "Thoughts of harming yourself"
     ];
 
     const GAD_ITEMS = [
@@ -1494,30 +1545,35 @@
       // 1-6 Likert scales
       buildLikert('icGroup', 'institutional_care');
       buildLikert('hweGroup', 'hostile_work_environment');
+      buildLikert('dhwGroup', 'departmental_hostile_environment');
       buildLikert('amsGroup', 'adequate_mh_services');
       buildLikert('arcGroup', 'antiracism_climate');
       buildLikert('afGroup', 'academic_freedom');
       buildLikert('cbGroup', 'campus_belonging');
 
-      // Build PHQ-9 (Q27..Q35)
+      // Build PHQ-9 (Q29..Q38)
       let phqHTML = '';
       PHQ_ITEMS.forEach((item, i) => {
-        phqHTML += buildFreq4(`phq${i + 1}`, `phq${i + 1}`, 27 + i, item);
+        phqHTML += buildFreq4(`phq${i + 1}`, `phq${i + 1}`, 29 + i, item);
       });
       document.getElementById('phqContainer').innerHTML = phqHTML;
 
-      // Hook PHQ9 crisis warning
-      document.querySelectorAll('input[name="phq9"]').forEach(el => {
-        el.addEventListener('change', () => {
-          const v = parseInt(el.value);
-          document.getElementById('crisisWarn').classList.toggle('show', v >= 2 && el.checked);
-        });
+      // Hook PHQ9 and PHQ10 (suicide/self-harm risk) → show crisis warning if either is >= 2
+      function checkCrisis() {
+        const q9Checked = document.querySelector('input[name="phq9"]:checked');
+        const q10Checked = document.querySelector('input[name="phq10"]:checked');
+        const v9 = q9Checked ? parseInt(q9Checked.value) : 1;
+        const v10 = q10Checked ? parseInt(q10Checked.value) : 1;
+        document.getElementById('crisisWarn').classList.toggle('show', v9 >= 2 || v10 >= 2);
+      }
+      document.querySelectorAll('input[name="phq9"], input[name="phq10"]').forEach(el => {
+        el.addEventListener('change', checkCrisis);
       });
 
-      // Build GAD-7 (Q36..Q42)
+      // Build GAD-7 (Q39..Q45)
       let gadHTML = '';
       GAD_ITEMS.forEach((item, i) => {
-        gadHTML += buildFreq4(`gad${i + 1}`, `gad${i + 1}`, 36 + i, item);
+        gadHTML += buildFreq4(`gad${i + 1}`, `gad${i + 1}`, 39 + i, item);
       });
       document.getElementById('gadContainer').innerHTML = gadHTML;
 
@@ -1632,13 +1688,13 @@
     };
 
     const STEP_TOASTS = {
-      2: '✅ Demographics done! Now your role context.',
-      3: '💼 Work burnout section complete!',
-      4: '📊 Burnout drivers complete!',
-      5: '🏢 Climate check done — almost there!',
-      6: '💪 Great job! Health & lifestyle done.',
-      7: '🌿 Wellbeing check done!',
-      8: '💭 Worry & anxiety check done — 1 more set!',
+      2: '✅ Basics done! Now your personal context.',
+      3: '🌿 Personal context done!',
+      4: '💼 Work burnout section complete!',
+      5: '📊 Burnout drivers complete!',
+      6: '🏢 Climate check done — almost there!',
+      7: '💪 Great job! Health & lifestyle done.',
+      8: '💭 Wellbeing done — 1 more set!',
       9: '🎉 Last section! You got this!',
     };
 
@@ -2136,11 +2192,15 @@
       saveStep(9);
 
       // Compute clinical wellbeing metrics
+      // Since item 9 was split into phq9 and phq10, we combine them via Math.max
       let phq = 0;
-      for (let i = 1; i <= 9; i++) {
+      for (let i = 1; i <= 8; i++) {
         const v = parseInt(data[`phq${i}`] || 1);
         phq += isNaN(v) ? 0 : (v - 1);
       }
+      const v9 = parseInt(data['phq9'] || 1);
+      const v10 = parseInt(data['phq10'] || 1);
+      phq += Math.max(v9 - 1, v10 - 1);
       let gad = 0;
       for (let i = 1; i <= 7; i++) {
         const v = parseInt(data[`gad${i}`] || 1);
@@ -2169,7 +2229,7 @@
 
       // Calculate exercise days mapping (1-6 scale expected by model)
       const exVal = parseInt(data.exercise_raw || 1);
-      data.physical_activity = exVal; // Maps 1 to 5 directly, 6 is defaulted if skipped
+      data.physical_activity = exVal === 4 ? 4 : exVal === 5 ? 6 : exVal;
 
       data.submitted_at = new Date().toISOString();
       data.response_id = 'rf_' + Math.random().toString(36).slice(2, 10) + '_' + Date.now();
@@ -2196,14 +2256,14 @@
         } catch (e) {
           const status = document.getElementById('submitStatus');
           if (status) {
-            status.textContent = '⚠ Network error — please save your data via CSV below.';
+            status.textContent = '⚠ Network issue — please refresh and re-submit if possible.';
             status.style.color = '#DD6B20';
           }
         }
       } else {
         const status = document.getElementById('submitStatus');
         if (status) {
-          status.textContent = 'ℹ responses stored locally. Use the button above to download your dataset record.';
+          status.textContent = 'ℹ Responses stored locally.';
           status.style.color = 'var(--muted)';
         }
       }
@@ -2303,11 +2363,6 @@
     }
 
     // ============================================================
-    // CSV Export
-    // ============================================================
-    // ============================================================
-    // CSV Export (Scaled vs Unscaled)
-    // ============================================================
     function downloadScaledCSV() {
       const scaledData = {};
       
@@ -2327,6 +2382,15 @@
       scaledData.is_faculty = data.role === 'Faculty' ? 1 : 0;
       scaledData.dependent_children = parseInt(data.dependent_children || 0);
       scaledData.relationship_status = parseInt(data.relationship_status || 5);
+      
+      const therapyMap = {
+        'Yes, currently receiving support': 1,
+        'Yes, received support in the past': 2,
+        'No, but I have considered it': 3,
+        'No, and I have never felt the need': 4,
+        'Prefer not to say': 5
+      };
+      scaledData.therapy_history = therapyMap[data.therapy_history] || 5;
       
       const raceMap = {
         'Asian': 3, '3': 3,
@@ -2356,13 +2420,13 @@
       // Climate
       scaledData.institutional_care = parseInt(data.institutional_care || 3);
       scaledData.hostile_work_environment = parseInt(data.hostile_work_environment || 3);
+      scaledData.departmental_hostile_environment = parseInt(data.departmental_hostile_environment || 3);
       scaledData.adequate_mh_services = parseInt(data.adequate_mh_services || 3);
       scaledData.antiracism_climate = parseInt(data.antiracism_climate || 3);
       scaledData.academic_freedom = parseInt(data.academic_freedom || 3);
       scaledData.campus_belonging = parseInt(data.campus_belonging || 3);
       
       // Health & Lifestyle
-      // exerc days mapping: 4 maps to 4, 5 maps to 6
       const exVal = parseInt(data.exercise_raw || 1);
       scaledData.physical_activity = exVal === 4 ? 4 : exVal === 5 ? 6 : exVal;
       
@@ -2376,7 +2440,7 @@
       scaledData.chronic_illness = parseInt(data.chronic_illness || 0);
       
       // PHQ-9 & GAD-7 Items
-      for (let i = 1; i <= 9; i++) {
+      for (let i = 1; i <= 10; i++) {
         scaledData[`phq${i}`] = parseInt(data[`phq${i}`] || 1);
       }
       scaledData.phq9_score = parseInt(data.phq9_score || 0);
@@ -2389,20 +2453,23 @@
       scaledData.would_use = data.would_use || '';
       scaledData.top_features = data.top_features || '';
       scaledData.email = data.email || '';
-
+ 
       const cols = [
         'stress_level', 'age_group', 'is_female', 'is_male', 'is_other', 'is_faculty',
-        'dependent_children', 'relationship_status', 'race', 'tenure_status',
+        'dependent_children', 'relationship_status', 'therapy_history', 'race', 'tenure_status',
         'work_exhaustion', 'emotional_toll', 'productivity_loss',
         'burnout_discrimination', 'burnout_anxiety', 'burnout_grief', 'burnout_financial_stress', 'burnout_sleep_deprivation',
         'institutional_care', 'physical_activity', 'campus_belonging',
-        'substance_use_score', 'chronic_illness', 'hostile_work_environment', 'adequate_mh_services',
-        'antiracism_climate', 'academic_freedom', 'university', 'country', 'response_id', 'submitted_at', 'would_use', 'top_features', 'email'
+        'substance_use_score', 'chronic_illness', 'hostile_work_environment', 'departmental_hostile_environment', 'adequate_mh_services',
+        'antiracism_climate', 'academic_freedom',
+        'phq1', 'phq2', 'phq3', 'phq4', 'phq5', 'phq6', 'phq7', 'phq8', 'phq9', 'phq10', 'phq9_score',
+        'gad1', 'gad2', 'gad3', 'gad4', 'gad5', 'gad6', 'gad7', 'gad7_score',
+        'university', 'country', 'response_id', 'submitted_at', 'would_use', 'top_features', 'email'
       ];
-
+ 
       triggerCSVDownload(scaledData, cols, `stresseq_faculty_scaled_${Date.now()}.csv`);
     }
-
+ 
     function downloadUnscaledCSV() {
       const unscaledData = {};
       
@@ -2412,17 +2479,18 @@
       unscaledData.country = data.country || '';
       
       // Target
-      unscaledData.stress_level = data.stress_level === 'High' ? 'High' : data.stress_level === 'Medium' ? 'Moderate' : 'Low';
+      unscaledData.stress_level = data.stress_level === 'High' ? 'High' : data.stress_level === 'Medium' ? 'Medium' : 'Low';
       
       // Demographics & Role
       const ageLabels = { 2: '25-34', 3: '35-44', 4: '45-54', 5: '55-64', 6: '65+' };
       unscaledData.age_group = ageLabels[data.age_group] || '25-34';
       unscaledData.gender = data.gender || 'Other';
       unscaledData.role = data.role || 'Staff';
-      unscaledData.children_dependent = data.dependent_children ? `${data.dependent_children} children` : '0 children';
+      unscaledData.dependent_children = data.dependent_children ? `${data.dependent_children} children` : '0 children';
       
       const relshipLabels = { 1: 'Single', 2: 'In a Relationship', 3: 'Married', 4: 'Divorced / Widowed', 5: 'Other' };
       unscaledData.relationship_status = relshipLabels[data.relationship_status] || 'Single';
+      unscaledData.therapy_history = data.therapy_history || 'Prefer not to say';
       
       const raceUnscaledMap = {
         'Asian': 'Asian', '3': 'Asian',
@@ -2442,9 +2510,10 @@
       // Burnout
       const freqLabels = { 1: 'Never', 2: 'Rarely', 3: 'Sometimes', 4: 'Often', 5: 'Always' };
       unscaledData.work_exhaustion = freqLabels[data.work_exhaustion] || 'Never';
+      unscaledData.emotional_toll = freqLabels[data.emotional_toll] || 'Never';
       
       const prodLabels = { 0: 'Not Applicable', 1: 'Never', 2: 'Rarely', 3: 'Sometimes' };
-      unscaledData.productivity_impact = prodLabels[data.productivity_loss] || 'Not Applicable';
+      unscaledData.productivity_loss = prodLabels[data.productivity_loss] || 'Not Applicable';
       
       const boLabels = { 1: 'Not a factor', 2: 'Minor factor', 3: 'Major factor' };
       unscaledData.burnout_discrimination = boLabels[data.burnout_discrimination] || 'Not a factor';
@@ -2459,43 +2528,58 @@
       unscaledData.campus_belonging = likertLabels5[data.campus_belonging] || 'Neutral';
       
       const likertLabels6 = { 1: 'Strongly Disagree', 2: 'Disagree', 3: 'Somewhat Disagree', 4: 'Somewhat Agree', 5: 'Agree', 6: 'Strongly Agree' };
-      unscaledData.hostile_environment = likertLabels6[data.hostile_work_environment] || 'Somewhat Disagree';
+      unscaledData.hostile_work_environment = likertLabels6[data.hostile_work_environment] || 'Somewhat Disagree';
+      unscaledData.departmental_hostile_environment = likertLabels6[data.departmental_hostile_environment] || 'Somewhat Disagree';
       unscaledData.adequate_mh_services = likertLabels6[data.adequate_mh_services] || 'Somewhat Agree';
       unscaledData.antiracism_climate = likertLabels6[data.antiracism_climate] || 'Somewhat Disagree';
       unscaledData.academic_freedom = likertLabels6[data.academic_freedom] || 'Somewhat Disagree';
       
       // Health & Lifestyle
-      const exLabels = { 1: '0 days', 2: '1-2 days', 3: '3-4 days', 4: '5+ days', 5: '5+ days' };
+      unscaledData.exercise_raw = parseInt(data.exercise_raw || 1);
+      const exLabels = { 1: '0 days', 2: '1-2 days', 3: '3-4 days', 4: '5-6 days', 5: '7 days' };
       unscaledData.physical_activity = exLabels[data.exercise_raw] || '0 days';
       
       const subList = data.substance_use || [];
-      const tobaccoUsed = subList.includes('Tobacco') ? 1 : 0;
-      const alcoholUsed = subList.includes('Alcohol') ? 1 : 0;
-      const drugUsed = subList.includes('Drugs') ? 1 : 0;
-      const susScore = tobaccoUsed + alcoholUsed + drugUsed;
+      unscaledData.tobacco = subList.includes('Tobacco') ? 'Sometimes' : 'Never';
+      unscaledData.alcohol = subList.includes('Alcohol') ? 'Sometimes' : 'Never';
+      unscaledData.drugs = subList.includes('Drugs') ? 'Yes' : 'No';
+      const susScore = (unscaledData.tobacco === 'Sometimes' ? 1 : 0) + (unscaledData.alcohol === 'Sometimes' ? 1 : 0) + (unscaledData.drugs === 'Yes' ? 1 : 0);
       const susLabels = { 0: '0 (None)', 1: '1 (Mild)', 2: '2 (Moderate)', 3: '3 (Severe)' };
       unscaledData.substance_use_score = susLabels[susScore] || '0 (None)';
       
-      const chrLabels = { 0: '0 (None)', 1: '1 (Mild)', 2: '2 (Moderate)', 3: '3 (Severe)' };
-      unscaledData.chronic_illness = chrLabels[data.chronic_illness] || '0 (None)';
+      const chrLabels = { 0: 'None', 1: 'Yes' };
+      unscaledData.chronic_illness = chrLabels[data.chronic_illness] || 'None';
       
+      // PHQ-9 & GAD-7 Items
+      const freq4Labels = { 1: 'Not at all', 2: 'A few days', 3: 'More than half the days', 4: 'Almost every day' };
+      for (let i = 1; i <= 10; i++) {
+        const val = parseInt(data[`phq${i}`] || 1);
+        unscaledData[`phq${i}`] = freq4Labels[val] || 'Not at all';
+      }
+      unscaledData.phq9_score = parseInt(data.phq9_score || 0);
+      for (let i = 1; i <= 7; i++) {
+        const val = parseInt(data[`gad${i}`] || 1);
+        unscaledData[`gad${i}`] = freq4Labels[val] || 'Not at all';
+      }
+      unscaledData.gad7_score = parseInt(data.gad7_score || 0);
+ 
       // Feedback & email
       unscaledData.would_use = data.would_use || '';
       unscaledData.top_features = data.top_features || '';
       unscaledData.email = data.email || '';
-
+ 
       const cols = [
-        'response_id', 'submitted_at',
-        // provenance
-        'university', 'country',
-        // demographics & role
-        'stress_level', 'age_group', 'gender', 'role', 'children_dependent', 'relationship_status', 'race', 'tenure_status',
-        'work_exhaustion', 'productivity_impact', 'burnout_discrimination', 'burnout_financial_stress', 'burnout_sleep_deprivation',
-        'burnout_anxiety', 'burnout_grief', 'institutional_care', 'physical_activity', 'campus_belonging',
-        'substance_use_score', 'chronic_illness', 'hostile_environment', 'adequate_mh_services', 'antiracism_climate', 'academic_freedom',
-        'response_id', 'submitted_at', 'would_use', 'top_features', 'email'
+        'response_id', 'submitted_at', 'university', 'country',
+        'age_group', 'gender', 'role', 'tenure_status', 'dependent_children', 'race', 'relationship_status', 'therapy_history',
+        'work_exhaustion', 'emotional_toll', 'productivity_loss',
+        'burnout_discrimination', 'burnout_anxiety', 'burnout_grief', 'burnout_financial_stress', 'burnout_sleep_deprivation',
+        'institutional_care', 'campus_belonging', 'hostile_work_environment', 'departmental_hostile_environment', 'adequate_mh_services', 'antiracism_climate', 'academic_freedom',
+        'exercise_raw', 'physical_activity', 'chronic_illness', 'tobacco', 'alcohol', 'drugs', 'substance_use_score',
+        'phq1', 'phq2', 'phq3', 'phq4', 'phq5', 'phq6', 'phq7', 'phq8', 'phq9', 'phq10', 'phq9_score',
+        'gad1', 'gad2', 'gad3', 'gad4', 'gad5', 'gad6', 'gad7', 'gad7_score',
+        'stress_level', 'would_use', 'top_features', 'email'
       ];
-
+ 
       triggerCSVDownload(unscaledData, cols, `stresseq_faculty_unscaled_${Date.now()}.csv`);
     }
 
