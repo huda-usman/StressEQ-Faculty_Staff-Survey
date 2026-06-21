@@ -676,15 +676,40 @@
       }
     }
 
+    /* Progress area — question counter + bar + pct */
+    .progress-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 6px;
+    }
+
+    .q-counter {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--primary);
+      color: #fff;
+      font-size: 0.72em;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 100px;
+      letter-spacing: 0.02em;
+      transition: background 0.4s;
+      white-space: nowrap;
+    }
+
+    .q-counter .q-icon { font-size: 0.9em; }
+
     /* Progress label */
     .progress-pct {
       text-align: right;
-      font-size: 0.75em;
+      font-size: 0.72em;
       font-weight: 600;
       color: var(--muted);
-      margin-top: 4px;
       text-transform: uppercase;
       letter-spacing: 0.03em;
+      white-space: nowrap;
     }
 
     .skip-btn {
@@ -874,10 +899,13 @@
       <div class="save-state" id="saveState">Auto-saved ✓</div>
     </div>
 
+    <div class="progress-header">
+      <span class="q-counter" id="qCounter"><span class="q-icon">📋</span> <span id="qCounterText">Start the survey</span></span>
+      <span class="progress-pct" id="progressPct"></span>
+    </div>
     <div class="progress-wrap">
       <div class="progress-bar" id="progressBar"></div>
     </div>
-    <div class="progress-pct" id="progressPct"></div>
 
     <form id="surveyForm">
 
@@ -953,7 +981,7 @@
                 <option value="Other">Other (Not listed)</option>
               </select>
               <input type="text" id="universityCustomInput" name="university_custom"
-                placeholder="Type your university name…" style="display:none; margin-top:8px;" />
+                placeholder="Type your university name…" maxlength="150" style="display:none; margin-top:8px;" />
             </div>
             <div class="question">
               <label class="q-label"><span class="qnum">Q2.</span> Country</label>
@@ -972,7 +1000,7 @@
                 <option value="Other">Other (Not listed)</option>
               </select>
               <input type="text" id="countryCustomInput" name="country_custom"
-                placeholder="Type your country name…" style="display:none; margin-top:8px;" />
+                placeholder="Type your country name…" maxlength="100" style="display:none; margin-top:8px;" />
             </div>
           </div>
 
@@ -1432,7 +1460,7 @@
 
           <div class="button-row">
             <button type="button" class="btn-secondary" onclick="prevStep()">← Back</button>
-            <button type="button" class="btn-primary" onclick="submitForm()">Submit ✓</button>
+            <button type="button" class="btn-primary" id="submitBtn" onclick="submitForm()">Submit ✓</button>
           </div>
         </div>
       </section>
@@ -1708,11 +1736,113 @@
       toastTimer = setTimeout(() => t.classList.remove('show'), 3000);
     }
 
+    // ── Real-time question answer counter ────────────────────────
+    const TOTAL_QUESTIONS = 47;
+    const QUESTION_FIELDS = {
+      // Step 1 — About you
+      1:  ['university_select', 'university_custom'],
+      2:  ['country_select', 'country_custom'],
+      3:  ['age_group'],
+      4:  ['gender'],
+      5:  ['race'],
+      6:  ['role'],
+      7:  ['tenure_status'],
+      8:  ['dependent_children'],
+      // Step 2 — Personal context
+      9:  ['relationship_status'],
+      10: ['therapy_history'],
+      // Step 3 — Occupational burnout
+      11: ['work_exhaustion'],
+      12: ['emotional_toll'],
+      13: ['productivity_loss'],
+      // Step 4 — Burnout drivers
+      14: ['burnout_discrimination'],
+      15: ['burnout_anxiety'],
+      16: ['burnout_grief'],
+      17: ['burnout_financial_stress'],
+      18: ['burnout_sleep_deprivation'],
+      // Step 5 — Institutional climate (likert groups built via buildLikert)
+      19: ['institutional_care'],
+      20: ['campus_belonging'],
+      21: ['hostile_work_environment'],
+      22: ['departmental_hostile_environment'],
+      23: ['adequate_mh_services'],
+      24: ['antiracism_climate'],
+      25: ['academic_freedom'],
+      // Step 6 — Lifestyle & health
+      26: ['exercise_raw'],
+      27: ['chronic_illness'],
+      28: ['substance_use'],
+      // PHQ-9 Q29–Q38 (dynamically built)
+      29: ['phq1'], 30: ['phq2'], 31: ['phq3'], 32: ['phq4'], 33: ['phq5'],
+      34: ['phq6'], 35: ['phq7'], 36: ['phq8'], 37: ['phq9'], 38: ['phq10'],
+      // GAD-7 Q39–Q45 (dynamically built)
+      39: ['gad1'], 40: ['gad2'], 41: ['gad3'], 42: ['gad4'],
+      43: ['gad5'], 44: ['gad6'], 45: ['gad7'],
+      // Step 9 — Coping & future
+      46: ['would_use'],
+      47: ['top'],
+    };
+
+    function isFieldAnswered(fieldNames) {
+      for (const name of fieldNames) {
+        const els = document.querySelectorAll(`[name="${name}"]`);
+        for (const el of els) {
+          if (el.type === 'radio' || el.type === 'checkbox') {
+            if (el.checked) return true;
+          } else if (el.value && el.value.trim() !== '') {
+            return true;
+          }
+        }
+      }
+      return false;
+    }
+
+    function countAnsweredQuestions() {
+      let count = 0;
+      for (const qnum in QUESTION_FIELDS) {
+        if (isFieldAnswered(QUESTION_FIELDS[qnum])) count++;
+      }
+      return count;
+    }
+
+    const STEP_Q_RANGE = {
+      1:  { start: 1,  end: 8  },
+      2:  { start: 9,  end: 10 },
+      3:  { start: 11, end: 13 },
+      4:  { start: 14, end: 18 },
+      5:  { start: 19, end: 25 },
+      6:  { start: 26, end: 28 },
+      7:  { start: 29, end: 38 },
+      8:  { start: 39, end: 45 },
+      9:  { start: 46, end: 47 },
+    };
+
     function updateProgressBar() {
       const pct = Math.round((currentStep / (totalSteps - 1)) * 100);
       document.getElementById('progressBar').style.width = pct + '%';
-      const pctEl = document.getElementById('progressPct');
-      if (pctEl) pctEl.textContent = currentStep === 0 ? '' : pct + '% complete';
+      const pctEl     = document.getElementById('progressPct');
+      const counterEl = document.getElementById('qCounterText');
+
+      const answered = countAnsweredQuestions();
+
+      if (currentStep === 0) {
+        if (pctEl) pctEl.textContent = '';
+        if (counterEl) counterEl.textContent = 'Start the survey';
+      } else if (currentStep >= totalSteps - 1) {
+        if (pctEl) pctEl.textContent = '100% complete';
+        if (counterEl) counterEl.textContent = `All ${TOTAL_QUESTIONS} of ${TOTAL_QUESTIONS} answered ✓`;
+      } else {
+        const range = STEP_Q_RANGE[currentStep];
+        if (pctEl) pctEl.textContent = `${pct}% complete`;
+        if (counterEl) {
+          if (range) {
+            counterEl.textContent = `${answered} of ${TOTAL_QUESTIONS} answered  ·  Q${range.start}–Q${range.end}`;
+          } else {
+            counterEl.textContent = `${answered} of ${TOTAL_QUESTIONS} answered`;
+          }
+        }
+      }
 
       const theme = STEP_THEMES[currentStep] || STEP_THEMES[0];
       document.documentElement.style.setProperty('--step-accent', theme.accent);
@@ -2181,8 +2311,9 @@
       }
     }
 
-    document.addEventListener('input', () => saveStep(currentStep));
-    document.addEventListener('change', () => saveStep(currentStep));
+    // Auto-save on any input change + update live question counter
+    document.addEventListener('input', () => { saveStep(currentStep); updateProgressBar(); });
+    document.addEventListener('change', () => { saveStep(currentStep); updateProgressBar(); });
 
     // ============================================================
     // Submit & Scoring
@@ -2190,6 +2321,10 @@
     async function submitForm() {
       if (!validateStep(9)) return;
       saveStep(9);
+
+      // Prevent double-submission
+      const btn = document.getElementById('submitBtn');
+      if (btn) { btn.disabled = true; btn.textContent = 'Submitting…'; }
 
       // Compute clinical wellbeing metrics
       // Since item 9 was split into phq9 and phq10, we combine them via Math.max
@@ -2253,12 +2388,16 @@
             status.textContent = '✓ Response submitted successfully.';
             status.style.color = '#38A169';
           }
+          // Clear saved progress so a refresh starts a fresh form
+          localStorage.removeItem(STORAGE_KEY);
         } catch (e) {
           const status = document.getElementById('submitStatus');
           if (status) {
             status.textContent = '⚠ Network issue — please refresh and re-submit if possible.';
             status.style.color = '#DD6B20';
           }
+          // Re-enable button so user can retry
+          if (btn) { btn.disabled = false; btn.textContent = 'Submit ✓'; }
         }
       } else {
         const status = document.getElementById('submitStatus');
