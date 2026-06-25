@@ -9,9 +9,11 @@
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
     :root {
-      --primary: #4F46E5; /* Indigo */
+      --primary: #4F46E5;
+      /* Indigo */
       --primary-dark: #4338CA;
-      --accent: #EC4899; /* Pink/Rose */
+      --accent: #EC4899;
+      /* Pink/Rose */
       --bg-grad-1: #EEF2FF;
       --bg-grad-2: #E0E7FF;
       --text: #1E293B;
@@ -699,7 +701,9 @@
       white-space: nowrap;
     }
 
-    .q-counter .q-icon { font-size: 0.9em; }
+    .q-counter .q-icon {
+      font-size: 0.9em;
+    }
 
     /* Progress label */
     .progress-pct {
@@ -730,7 +734,7 @@
     .skip-btn:hover {
       color: var(--primary);
       border-color: var(--primary);
-      background: rgba(79,70,229,0.06);
+      background: rgba(79, 70, 229, 0.06);
     }
 
     /* Highlighted state after user clicks Skip */
@@ -823,12 +827,15 @@
       max-height: 235px;
       overflow-y: auto;
       /* Hide native scrollbar but keep scroll functionality */
-      scrollbar-width: none; /* Firefox */
-      -ms-overflow-style: none; /* IE 10+ */
+      scrollbar-width: none;
+      /* Firefox */
+      -ms-overflow-style: none;
+      /* IE 10+ */
     }
 
     .custom-select-options::-webkit-scrollbar {
-      display: none !important; /* Safari and Chrome */
+      display: none !important;
+      /* Safari and Chrome */
       width: 0 !important;
       height: 0 !important;
     }
@@ -895,12 +902,14 @@
 <body>
   <div class="shell">
     <div class="topbar">
-      <div class="brand">StressEQ<span class="dot">.</span> <span style="font-weight:400; font-size:0.85em; color:var(--muted);">Faculty &amp; Staff</span></div>
+      <div class="brand">StressEQ<span class="dot">.</span> <span
+          style="font-weight:400; font-size:0.85em; color:var(--muted);">Faculty &amp; Staff</span></div>
       <div class="save-state" id="saveState">Auto-saved ✓</div>
     </div>
 
     <div class="progress-header">
-      <span class="q-counter" id="qCounter"><span class="q-icon">📋</span> <span id="qCounterText">Start the survey</span></span>
+      <span class="q-counter" id="qCounter"><span class="q-icon">📋</span> <span id="qCounterText">Start the
+          survey</span></span>
       <span class="progress-pct" id="progressPct"></span>
     </div>
     <div class="progress-wrap">
@@ -912,22 +921,31 @@
       <!-- ===================== STEP 0: COVER ===================== -->
       <section class="step active" data-step="0">
         <div class="card" style="text-align:center; padding: 36px 28px 32px;">
-          <div style="font-size:3.2em; margin-bottom:16px; animation: popIn 0.5s cubic-bezier(0.34,1.56,0.64,1) both;">💼</div>
+          <div style="font-size:3.2em; margin-bottom:16px; animation: popIn 0.5s cubic-bezier(0.34,1.56,0.64,1) both;">
+            💼</div>
           <h1 style="font-size:1.9em; font-weight:800; line-height:1.2; margin-bottom:10px;">
             Support yourself. <span style="color:var(--step-accent);">Strengthen the institution.</span>
           </h1>
           <p style="color:var(--muted); font-size:1em; margin-bottom:28px; line-height:1.6;">
-            We're building an AI that detects workplace burnout triggers, forecasts chronic stress load, and drives supportive wellness changes.<br>
+            We're building an AI that detects workplace burnout triggers, forecasts chronic stress load, and drives
+            supportive wellness changes.<br>
             <strong style="color:var(--text);">Your voice matters.</strong> Takes ~6 minutes. Fully anonymous.
           </p>
 
           <div style="display:flex; justify-content:center; gap:10px; flex-wrap:wrap; margin-bottom:20px;">
-            <span style="background:var(--soft); border:1px solid var(--border); border-radius:30px; padding:6px 16px; font-size:0.82em; font-weight:600; color:var(--text);">⏱ ~6 minutes</span>
-            <span style="background:var(--soft); border:1px solid var(--border); border-radius:30px; padding:6px 16px; font-size:0.82em; font-weight:600; color:var(--text);">🔒 Anonymous</span>
-            <span style="background:var(--soft); border:1px solid var(--border); border-radius:30px; padding:6px 16px; font-size:0.82em; font-weight:600; color:var(--text);">🤝 Faculty &amp; Staff Research</span>
+            <span
+              style="background:var(--soft); border:1px solid var(--border); border-radius:30px; padding:6px 16px; font-size:0.82em; font-weight:600; color:var(--text);">⏱
+              ~6 minutes</span>
+            <span
+              style="background:var(--soft); border:1px solid var(--border); border-radius:30px; padding:6px 16px; font-size:0.82em; font-weight:600; color:var(--text);">🔒
+              Anonymous</span>
+            <span
+              style="background:var(--soft); border:1px solid var(--border); border-radius:30px; padding:6px 16px; font-size:0.82em; font-weight:600; color:var(--text);">🤝
+              Faculty &amp; Staff Research</span>
           </div>
 
-          <button type="button" class="btn-primary" onclick="nextStep()" style="width:100%; padding:16px; font-size:1.1em; font-weight:700; border-radius:14px; letter-spacing:0.01em;">
+          <button type="button" class="btn-primary" onclick="nextStep()"
+            style="width:100%; padding:16px; font-size:1.1em; font-weight:700; border-radius:14px; letter-spacing:0.01em;">
             Start Survey →
           </button>
 
@@ -939,8 +957,15 @@
 
         <style>
           @keyframes popIn {
-            from { transform: scale(0.5); opacity: 0; }
-            to { transform: scale(1); opacity: 1; }
+            from {
+              transform: scale(0.5);
+              opacity: 0;
+            }
+
+            to {
+              transform: scale(1);
+              opacity: 1;
+            }
           }
         </style>
       </section>
@@ -956,21 +981,26 @@
               <label class="q-label"><span class="qnum">Q1.</span> University / Institution name</label>
               <select name="university_select" id="universitySelect" onchange="toggleUniversityCustomField()" required>
                 <option value="">select university:</option>
-                <option value="NUST (National University of Sciences &amp; Technology)">NUST (National University of Sciences &amp; Technology)</option>
+                <option value="NUST (National University of Sciences &amp; Technology)">NUST (National University of
+                  Sciences &amp; Technology)</option>
                 <option value="FAST-NUCES">FAST-NUCES</option>
                 <option value="COMSATS University">COMSATS University</option>
                 <option value="Shifa Tameer-e-Millat University">Shifa Tameer-e-Millat University</option>
-                <option value="Capital University of Science &amp; Technology (CUST)">Capital University of Science &amp; Technology (CUST)</option>
+                <option value="Capital University of Science &amp; Technology (CUST)">Capital University of Science
+                  &amp; Technology (CUST)</option>
                 <option value="Air University">Air University</option>
                 <option value="Bahria University">Bahria University</option>
                 <option value="Quaid-i-Azam University">Quaid-i-Azam University</option>
                 <option value="International Islamic University">International Islamic University</option>
-                <option value="National University of Modern Languages (NUML)">National University of Modern Languages (NUML)</option>
+                <option value="National University of Modern Languages (NUML)">National University of Modern Languages
+                  (NUML)</option>
                 <option value="Riphah International University">Riphah International University</option>
                 <option value="HBS Medical and Dental College">HBS Medical and Dental College</option>
                 <option value="Allama Iqbal Open University">Allama Iqbal Open University</option>
-                <option value="Lahore University of Management Sciences (LUMS)">Lahore University of Management Sciences (LUMS)</option>
-                <option value="University of Engineering &amp; Technology (UET) Lahore">University of Engineering &amp; Technology (UET) Lahore</option>
+                <option value="Lahore University of Management Sciences (LUMS)">Lahore University of Management Sciences
+                  (LUMS)</option>
+                <option value="University of Engineering &amp; Technology (UET) Lahore">University of Engineering &amp;
+                  Technology (UET) Lahore</option>
                 <option value="University of the Punjab">University of the Punjab</option>
                 <option value="University of Karachi">University of Karachi</option>
                 <option value="University of Peshawar">University of Peshawar</option>
@@ -999,47 +1029,67 @@
                 <option value="China">China</option>
                 <option value="Other">Other (Not listed)</option>
               </select>
-              <input type="text" id="countryCustomInput" name="country_custom"
-                placeholder="Type your country name…" maxlength="100" style="display:none; margin-top:8px;" />
+              <input type="text" id="countryCustomInput" name="country_custom" placeholder="Type your country name…"
+                maxlength="100" style="display:none; margin-top:8px;" />
             </div>
           </div>
 
-          <div class="question">
+          <div class="question" id="ageQuestion">
             <label class="q-label"><span class="qnum">Q3.</span> What is your age?</label>
             <div class="radio-group">
-              <div class="radio-card"><input type="radio" id="ag1" name="age_group" value="2" required /><label for="ag1">25–34</label></div>
-              <div class="radio-card"><input type="radio" id="ag2" name="age_group" value="3" /><label for="ag2">35–44</label></div>
-              <div class="radio-card"><input type="radio" id="ag3" name="age_group" value="4" /><label for="ag3">45–54</label></div>
-              <div class="radio-card"><input type="radio" id="ag4" name="age_group" value="5" /><label for="ag4">55–64</label></div>
-              <div class="radio-card"><input type="radio" id="ag5" name="age_group" value="6" /><label for="ag5">65+</label></div>
+              <div class="radio-card"><input type="radio" id="ag0" name="age_group" value="Under 25"
+                  onchange="toggleAgeCustomField()" required /><label for="ag0">Under 25</label></div>
+              <div class="radio-card"><input type="radio" id="ag1" name="age_group" value="2"
+                  onchange="toggleAgeCustomField()" /><label for="ag1">25–34</label></div>
+              <div class="radio-card"><input type="radio" id="ag2" name="age_group" value="3"
+                  onchange="toggleAgeCustomField()" /><label for="ag2">35–44</label></div>
+              <div class="radio-card"><input type="radio" id="ag3" name="age_group" value="4"
+                  onchange="toggleAgeCustomField()" /><label for="ag3">45–54</label></div>
+              <div class="radio-card"><input type="radio" id="ag4" name="age_group" value="5"
+                  onchange="toggleAgeCustomField()" /><label for="ag4">55–64</label></div>
+              <div class="radio-card"><input type="radio" id="ag5" name="age_group" value="6"
+                  onchange="toggleAgeCustomField()" /><label for="ag5">65+</label></div>
             </div>
+            <input type="number" id="ageCustomInput" name="age_custom" min="16" max="24" step="1"
+              placeholder="Enter your exact age…" style="display:none; margin-top:8px;"
+              onblur="let v=parseInt(this.value); if(!isNaN(v)){if(v<16)this.value=16; if(v>24)this.value=24;}" />
           </div>
 
           <div class="question">
             <label class="q-label"><span class="qnum">Q4.</span> Gender</label>
             <div class="radio-group">
-              <div class="radio-card"><input type="radio" id="gen1" name="gender" value="Female" required /><label for="gen1">Female</label></div>
-              <div class="radio-card"><input type="radio" id="gen2" name="gender" value="Male" /><label for="gen2">Male</label></div>
-              <div class="radio-card"><input type="radio" id="gen3" name="gender" value="Other" /><label for="gen3">Other / Prefer not to say</label></div>
+              <div class="radio-card"><input type="radio" id="gen1" name="gender" value="Female" required /><label
+                  for="gen1">Female</label></div>
+              <div class="radio-card"><input type="radio" id="gen2" name="gender" value="Male" /><label
+                  for="gen2">Male</label></div>
+              <div class="radio-card"><input type="radio" id="gen3" name="gender" value="Other" /><label
+                  for="gen3">Other / Prefer not to say</label></div>
             </div>
           </div>
 
           <div class="question">
             <label class="q-label"><span class="qnum">Q5.</span> Which best describes your background?</label>
             <div class="radio-group">
-              <div class="radio-card"><input type="radio" id="rc1" name="race" value="Asian" required /><label for="rc1">Asian</label></div>
-              <div class="radio-card"><input type="radio" id="rc2" name="race" value="Black" /><label for="rc2">Black</label></div>
-              <div class="radio-card"><input type="radio" id="rc3" name="race" value="White" /><label for="rc3">White</label></div>
-              <div class="radio-card"><input type="radio" id="rc4" name="race" value="Other" /><label for="rc4">Other / Mixed</label></div>
-              <div class="radio-card"><input type="radio" id="rc5" name="race" value="Prefer not to say" /><label for="rc5">Prefer not to say</label></div>
+              <div class="radio-card"><input type="radio" id="rc1" name="race" value="Asian" required /><label
+                  for="rc1">Asian</label></div>
+              <div class="radio-card"><input type="radio" id="rc2" name="race" value="Black" /><label
+                  for="rc2">Black</label></div>
+              <div class="radio-card"><input type="radio" id="rc3" name="race" value="White" /><label
+                  for="rc3">White</label></div>
+              <div class="radio-card"><input type="radio" id="rc4" name="race" value="Other" /><label for="rc4">Other /
+                  Mixed</label></div>
+              <div class="radio-card"><input type="radio" id="rc5" name="race" value="Prefer not to say" /><label
+                  for="rc5">Prefer not to say</label></div>
             </div>
           </div>
 
           <div class="question">
             <label class="q-label"><span class="qnum">Q6.</span> What is your primary role at the institution?</label>
             <div class="radio-group">
-              <div class="radio-card"><input type="radio" id="role1" name="role" value="Faculty" required /><label for="role1">Faculty (Teaching/Research)</label></div>
-              <div class="radio-card"><input type="radio" id="role2" name="role" value="Staff" /><label for="role2">Staff (Administrative/Support)</label></div>
+              <div class="radio-card"><input type="radio" id="role1" name="role" value="Faculty" required /><label
+                  for="role1">Faculty (Teaching/Research)</label></div>
+              <div class="radio-card"><input type="radio" id="role2" name="role" value="Staff" /><label
+                  for="role2">Staff (Administrative/Support)</label></div>
             </div>
           </div>
 
@@ -1050,28 +1100,32 @@
                 <input type="radio" id="tenure1" name="tenure_status" value="1" />
                 <label for="tenure1">
                   <strong>Tenured</strong>
-                  <span style="font-size:0.8em; opacity:0.85; display:block; margin-top:2px;">Permanent appointment (secured position)</span>
+                  <span style="font-size:0.8em; opacity:0.85; display:block; margin-top:2px;">Permanent appointment
+                    (secured position)</span>
                 </label>
               </div>
               <div class="radio-card">
                 <input type="radio" id="tenure2" name="tenure_status" value="2" />
                 <label for="tenure2">
                   <strong>Tenure Track</strong>
-                  <span style="font-size:0.8em; opacity:0.85; display:block; margin-top:2px;">Working toward permanent tenure</span>
+                  <span style="font-size:0.8em; opacity:0.85; display:block; margin-top:2px;">Working toward permanent
+                    tenure</span>
                 </label>
               </div>
               <div class="radio-card">
                 <input type="radio" id="tenure3" name="tenure_status" value="3" />
                 <label for="tenure3">
                   <strong>Non-Tenure Track</strong>
-                  <span style="font-size:0.8em; opacity:0.85; display:block; margin-top:2px;">Contract, adjunct, or temporary role</span>
+                  <span style="font-size:0.8em; opacity:0.85; display:block; margin-top:2px;">Contract, adjunct, or
+                    temporary role</span>
                 </label>
               </div>
               <div class="radio-card">
                 <input type="radio" id="tenure4" name="tenure_status" value="4" />
                 <label for="tenure4">
                   <strong>Not Applicable</strong>
-                  <span style="font-size:0.8em; opacity:0.85; display:block; margin-top:2px;">Not in a tenure system</span>
+                  <span style="font-size:0.8em; opacity:0.85; display:block; margin-top:2px;">Not in a tenure
+                    system</span>
                 </label>
               </div>
             </div>
@@ -1080,11 +1134,16 @@
           <div class="question">
             <label class="q-label"><span class="qnum">Q8.</span> How many dependent children do you have?</label>
             <div class="radio-group">
-              <div class="radio-card"><input type="radio" id="ch0" name="dependent_children" value="0" required /><label for="ch0">None</label></div>
-              <div class="radio-card"><input type="radio" id="ch1" name="dependent_children" value="1" /><label for="ch1">1</label></div>
-              <div class="radio-card"><input type="radio" id="ch2" name="dependent_children" value="2" /><label for="ch2">2</label></div>
-              <div class="radio-card"><input type="radio" id="ch3" name="dependent_children" value="3" /><label for="ch3">3</label></div>
-              <div class="radio-card"><input type="radio" id="ch4" name="dependent_children" value="4" /><label for="ch4">4+</label></div>
+              <div class="radio-card"><input type="radio" id="ch0" name="dependent_children" value="0" required /><label
+                  for="ch0">None</label></div>
+              <div class="radio-card"><input type="radio" id="ch1" name="dependent_children" value="1" /><label
+                  for="ch1">1</label></div>
+              <div class="radio-card"><input type="radio" id="ch2" name="dependent_children" value="2" /><label
+                  for="ch2">2</label></div>
+              <div class="radio-card"><input type="radio" id="ch3" name="dependent_children" value="3" /><label
+                  for="ch3">3</label></div>
+              <div class="radio-card"><input type="radio" id="ch4" name="dependent_children" value="4" /><label
+                  for="ch4">4+</label></div>
             </div>
           </div>
 
@@ -1103,18 +1162,24 @@
           <p class="lead">Questions to help understand how family and lifestyle factors interact with work stress.</p>
 
           <div class="callout" style="margin-bottom:6px;">
-            <strong>Why we ask:</strong> Caring responsibilities, family status, and local support structures play a massive role in balancing heavy institutional workloads.
+            <strong>Why we ask:</strong> Caring responsibilities, family status, and local support structures play a
+            massive role in balancing heavy institutional workloads.
           </div>
 
           <div class="question">
             <label class="q-label"><span class="qnum">Q9.</span> Which best describes your relationship status?</label>
 
             <div class="radio-group" style="margin-top:8px;">
-              <div class="radio-card"><input type="radio" id="rs1" name="relationship_status" value="1" required /><label for="rs1">Single</label></div>
-              <div class="radio-card"><input type="radio" id="rs2" name="relationship_status" value="2" /><label for="rs2">In a relationship</label></div>
-              <div class="radio-card"><input type="radio" id="rs3" name="relationship_status" value="3" /><label for="rs3">Married / Partnered</label></div>
-              <div class="radio-card"><input type="radio" id="rs4" name="relationship_status" value="4" /><label for="rs4">Divorced / Separated / Widowed</label></div>
-              <div class="radio-card"><input type="radio" id="rs5" name="relationship_status" value="5" /><label for="rs5">Other / Prefer not to say</label></div>
+              <div class="radio-card"><input type="radio" id="rs1" name="relationship_status" value="1"
+                  required /><label for="rs1">Single</label></div>
+              <div class="radio-card"><input type="radio" id="rs2" name="relationship_status" value="2" /><label
+                  for="rs2">In a relationship</label></div>
+              <div class="radio-card"><input type="radio" id="rs3" name="relationship_status" value="3" /><label
+                  for="rs3">Married / Partnered</label></div>
+              <div class="radio-card"><input type="radio" id="rs4" name="relationship_status" value="4" /><label
+                  for="rs4">Divorced / Separated / Widowed</label></div>
+              <div class="radio-card"><input type="radio" id="rs5" name="relationship_status" value="5" /><label
+                  for="rs5">Other / Prefer not to say</label></div>
             </div>
           </div>
 
@@ -1122,13 +1187,22 @@
 
           <!-- Q: Therapy / Counseling History -->
           <div class="question">
-            <label class="q-label"><span class="qnum">Q10.</span> Have you ever taken therapy or counseling services, or are you currently receiving them?</label>
+            <label class="q-label"><span class="qnum">Q10.</span> Have you ever taken therapy or counseling services, or
+              are you currently receiving them?</label>
             <div class="radio-group long-options" style="margin-top:8px;">
-              <div class="radio-card"><input type="radio" id="th1" name="therapy_history" value="Yes, currently receiving support" required /><label for="th1">Yes, currently receiving support</label></div>
-              <div class="radio-card"><input type="radio" id="th2" name="therapy_history" value="Yes, received support in the past" /><label for="th2">Yes, received support in the past</label></div>
-              <div class="radio-card"><input type="radio" id="th3" name="therapy_history" value="No, but I have considered it" /><label for="th3">No, but I have considered it</label></div>
-              <div class="radio-card"><input type="radio" id="th4" name="therapy_history" value="No, and I have never felt the need" /><label for="th4">No, and I have never felt the need</label></div>
-              <div class="radio-card"><input type="radio" id="th5" name="therapy_history" value="Prefer not to say" /><label for="th5">Prefer not to say</label></div>
+              <div class="radio-card"><input type="radio" id="th1" name="therapy_history"
+                  value="Yes, currently receiving support" required /><label for="th1">Yes, currently receiving
+                  support</label></div>
+              <div class="radio-card"><input type="radio" id="th2" name="therapy_history"
+                  value="Yes, received support in the past" /><label for="th2">Yes, received support in the past</label>
+              </div>
+              <div class="radio-card"><input type="radio" id="th3" name="therapy_history"
+                  value="No, but I have considered it" /><label for="th3">No, but I have considered it</label></div>
+              <div class="radio-card"><input type="radio" id="th4" name="therapy_history"
+                  value="No, and I have never felt the need" /><label for="th4">No, and I have never felt the
+                  need</label></div>
+              <div class="radio-card"><input type="radio" id="th5" name="therapy_history"
+                  value="Prefer not to say" /><label for="th5">Prefer not to say</label></div>
             </div>
           </div>
 
@@ -1149,33 +1223,50 @@
           <div class="question">
             <label class="q-label"><span class="qnum">Q11.</span> How often do you feel exhausted by your work?</label>
             <div class="radio-group">
-              <div class="radio-card"><input type="radio" id="we1" name="work_exhaustion" value="1" required /><label for="we1">Never</label></div>
-              <div class="radio-card"><input type="radio" id="we2" name="work_exhaustion" value="2" /><label for="we2">Rarely</label></div>
-              <div class="radio-card"><input type="radio" id="we3" name="work_exhaustion" value="3" /><label for="we3">Sometimes</label></div>
-              <div class="radio-card"><input type="radio" id="we4" name="work_exhaustion" value="4" /><label for="we4">Often</label></div>
-              <div class="radio-card"><input type="radio" id="we5" name="work_exhaustion" value="5" /><label for="we5">Always</label></div>
+              <div class="radio-card"><input type="radio" id="we1" name="work_exhaustion" value="1" required /><label
+                  for="we1">Never</label></div>
+              <div class="radio-card"><input type="radio" id="we2" name="work_exhaustion" value="2" /><label
+                  for="we2">Rarely</label></div>
+              <div class="radio-card"><input type="radio" id="we3" name="work_exhaustion" value="3" /><label
+                  for="we3">Sometimes</label></div>
+              <div class="radio-card"><input type="radio" id="we4" name="work_exhaustion" value="4" /><label
+                  for="we4">Often</label></div>
+              <div class="radio-card"><input type="radio" id="we5" name="work_exhaustion" value="5" /><label
+                  for="we5">Always</label></div>
             </div>
           </div>
 
           <div class="question">
-            <label class="q-label"><span class="qnum">Q12.</span> How often do you feel emotionally drained by your work?</label>
+            <label class="q-label"><span class="qnum">Q12.</span> How often do you feel emotionally drained by your
+              work?</label>
             <div class="radio-group">
-              <div class="radio-card"><input type="radio" id="et1" name="emotional_toll" value="1" required /><label for="et1">Never</label></div>
-              <div class="radio-card"><input type="radio" id="et2" name="emotional_toll" value="2" /><label for="et2">Rarely</label></div>
-              <div class="radio-card"><input type="radio" id="et3" name="emotional_toll" value="3" /><label for="et3">Sometimes</label></div>
-              <div class="radio-card"><input type="radio" id="et4" name="emotional_toll" value="4" /><label for="et4">Often</label></div>
-              <div class="radio-card"><input type="radio" id="et5" name="emotional_toll" value="5" /><label for="et5">Always</label></div>
-              <div class="radio-card"><input type="radio" id="et6" name="emotional_toll" value="6" /><label for="et6">Not Applicable</label></div>
+              <div class="radio-card"><input type="radio" id="et1" name="emotional_toll" value="1" required /><label
+                  for="et1">Never</label></div>
+              <div class="radio-card"><input type="radio" id="et2" name="emotional_toll" value="2" /><label
+                  for="et2">Rarely</label></div>
+              <div class="radio-card"><input type="radio" id="et3" name="emotional_toll" value="3" /><label
+                  for="et3">Sometimes</label></div>
+              <div class="radio-card"><input type="radio" id="et4" name="emotional_toll" value="4" /><label
+                  for="et4">Often</label></div>
+              <div class="radio-card"><input type="radio" id="et5" name="emotional_toll" value="5" /><label
+                  for="et5">Always</label></div>
+              <div class="radio-card"><input type="radio" id="et6" name="emotional_toll" value="6" /><label
+                  for="et6">Not Applicable</label></div>
             </div>
           </div>
 
           <div class="question">
-            <label class="q-label"><span class="qnum">Q13.</span> How often has stress or burnout reduced your work productivity?</label>
+            <label class="q-label"><span class="qnum">Q13.</span> How often has stress or burnout reduced your work
+              productivity?</label>
             <div class="radio-group">
-              <div class="radio-card"><input type="radio" id="pl0" name="productivity_loss" value="0" required /><label for="pl0">Not at all / Not applicable</label></div>
-              <div class="radio-card"><input type="radio" id="pl1" name="productivity_loss" value="1" /><label for="pl1">Never</label></div>
-              <div class="radio-card"><input type="radio" id="pl2" name="productivity_loss" value="2" /><label for="pl2">Rarely</label></div>
-              <div class="radio-card"><input type="radio" id="pl3" name="productivity_loss" value="3" /><label for="pl3">Sometimes</label></div>
+              <div class="radio-card"><input type="radio" id="pl0" name="productivity_loss" value="0" required /><label
+                  for="pl0">Not at all / Not applicable</label></div>
+              <div class="radio-card"><input type="radio" id="pl1" name="productivity_loss" value="1" /><label
+                  for="pl1">Never</label></div>
+              <div class="radio-card"><input type="radio" id="pl2" name="productivity_loss" value="2" /><label
+                  for="pl2">Rarely</label></div>
+              <div class="radio-card"><input type="radio" id="pl3" name="productivity_loss" value="3" /><label
+                  for="pl3">Sometimes</label></div>
             </div>
           </div>
 
@@ -1196,45 +1287,60 @@
           <div class="question">
             <label class="q-label"><span class="qnum">Q14.</span> Discrimination or unfair treatment</label>
             <div class="radio-group">
-              <div class="radio-card"><input type="radio" id="bd1" name="burnout_discrimination" value="1" required /><label for="bd1">Not a factor</label></div>
-              <div class="radio-card"><input type="radio" id="bd2" name="burnout_discrimination" value="2" /><label for="bd2">Minor factor</label></div>
-              <div class="radio-card"><input type="radio" id="bd3" name="burnout_discrimination" value="3" /><label for="bd3">Major factor</label></div>
+              <div class="radio-card"><input type="radio" id="bd1" name="burnout_discrimination" value="1"
+                  required /><label for="bd1">Not a factor</label></div>
+              <div class="radio-card"><input type="radio" id="bd2" name="burnout_discrimination" value="2" /><label
+                  for="bd2">Minor factor</label></div>
+              <div class="radio-card"><input type="radio" id="bd3" name="burnout_discrimination" value="3" /><label
+                  for="bd3">Major factor</label></div>
             </div>
           </div>
 
           <div class="question">
             <label class="q-label"><span class="qnum">Q15.</span> Anxiety or persistent worry</label>
             <div class="radio-group">
-              <div class="radio-card"><input type="radio" id="ba1" name="burnout_anxiety" value="1" required /><label for="ba1">Not a factor</label></div>
-              <div class="radio-card"><input type="radio" id="ba2" name="burnout_anxiety" value="2" /><label for="ba2">Minor factor</label></div>
-              <div class="radio-card"><input type="radio" id="ba3" name="burnout_anxiety" value="3" /><label for="ba3">Major factor</label></div>
+              <div class="radio-card"><input type="radio" id="ba1" name="burnout_anxiety" value="1" required /><label
+                  for="ba1">Not a factor</label></div>
+              <div class="radio-card"><input type="radio" id="ba2" name="burnout_anxiety" value="2" /><label
+                  for="ba2">Minor factor</label></div>
+              <div class="radio-card"><input type="radio" id="ba3" name="burnout_anxiety" value="3" /><label
+                  for="ba3">Major factor</label></div>
             </div>
           </div>
 
           <div class="question">
             <label class="q-label"><span class="qnum">Q16.</span> Grief or loss</label>
             <div class="radio-group">
-              <div class="radio-card"><input type="radio" id="bg1" name="burnout_grief" value="1" required /><label for="bg1">Not a factor</label></div>
-              <div class="radio-card"><input type="radio" id="bg2" name="burnout_grief" value="2" /><label for="bg2">Minor factor</label></div>
-              <div class="radio-card"><input type="radio" id="bg3" name="burnout_grief" value="3" /><label for="bg3">Major factor</label></div>
+              <div class="radio-card"><input type="radio" id="bg1" name="burnout_grief" value="1" required /><label
+                  for="bg1">Not a factor</label></div>
+              <div class="radio-card"><input type="radio" id="bg2" name="burnout_grief" value="2" /><label
+                  for="bg2">Minor factor</label></div>
+              <div class="radio-card"><input type="radio" id="bg3" name="burnout_grief" value="3" /><label
+                  for="bg3">Major factor</label></div>
             </div>
           </div>
 
           <div class="question">
             <label class="q-label"><span class="qnum">Q17.</span> Financial stress or concerns</label>
             <div class="radio-group">
-              <div class="radio-card"><input type="radio" id="bf1" name="burnout_financial_stress" value="1" required /><label for="bf1">Not a factor</label></div>
-              <div class="radio-card"><input type="radio" id="bf2" name="burnout_financial_stress" value="2" /><label for="bf2">Minor factor</label></div>
-              <div class="radio-card"><input type="radio" id="bf3" name="burnout_financial_stress" value="3" /><label for="bf3">Major factor</label></div>
+              <div class="radio-card"><input type="radio" id="bf1" name="burnout_financial_stress" value="1"
+                  required /><label for="bf1">Not a factor</label></div>
+              <div class="radio-card"><input type="radio" id="bf2" name="burnout_financial_stress" value="2" /><label
+                  for="bf2">Minor factor</label></div>
+              <div class="radio-card"><input type="radio" id="bf3" name="burnout_financial_stress" value="3" /><label
+                  for="bf3">Major factor</label></div>
             </div>
           </div>
 
           <div class="question">
             <label class="q-label"><span class="qnum">Q18.</span> Sleep deprivation or lack of sleep</label>
             <div class="radio-group">
-              <div class="radio-card"><input type="radio" id="bs1" name="burnout_sleep_deprivation" value="1" required /><label for="bs1">Not a factor</label></div>
-              <div class="radio-card"><input type="radio" id="bs2" name="burnout_sleep_deprivation" value="2" /><label for="bs2">Minor factor</label></div>
-              <div class="radio-card"><input type="radio" id="bs3" name="burnout_sleep_deprivation" value="3" /><label for="bs3">Major factor</label></div>
+              <div class="radio-card"><input type="radio" id="bs1" name="burnout_sleep_deprivation" value="1"
+                  required /><label for="bs1">Not a factor</label></div>
+              <div class="radio-card"><input type="radio" id="bs2" name="burnout_sleep_deprivation" value="2" /><label
+                  for="bs2">Minor factor</label></div>
+              <div class="radio-card"><input type="radio" id="bs3" name="burnout_sleep_deprivation" value="3" /><label
+                  for="bs3">Major factor</label></div>
             </div>
           </div>
 
@@ -1250,10 +1356,12 @@
         <div class="card">
           <span class="step-badge">Section 5 of 9 · Institutional Climate</span>
           <h2>Your work environment</h2>
-          <p class="lead">Please rate how much you agree or disagree with the following statements regarding your institution. (1 = Strongly Disagree, 6 = Strongly Agree)</p>
+          <p class="lead">Please rate how much you agree or disagree with the following statements regarding your
+            institution. (1 = Strongly Disagree, 6 = Strongly Agree)</p>
 
           <div class="question">
-            <label class="q-label"><span class="qnum">Q19.</span> My institution cares about my mental health and well-being.</label>
+            <label class="q-label"><span class="qnum">Q19.</span> My institution cares about my mental health and
+              well-being.</label>
             <div class="likert" id="icGroup"></div>
             <div class="likert-anchors"><span>Strongly Disagree</span><span>Strongly Agree</span></div>
           </div>
@@ -1265,34 +1373,42 @@
           </div>
 
           <div class="question">
-            <label class="q-label"><span class="qnum">Q21.</span> I work in a hostile or negative environment at the institutional level.</label>
-            <div class="hint">This refers to the overall university/institution climate, policies, or systemic culture.</div>
+            <label class="q-label"><span class="qnum">Q21.</span> I work in a hostile or negative environment at the
+              institutional level.</label>
+            <div class="hint">This refers to the overall university/institution climate, policies, or systemic culture.
+            </div>
             <div class="likert" id="hweGroup"></div>
             <div class="likert-anchors"><span>Strongly Disagree</span><span>Strongly Agree</span></div>
           </div>
 
           <div class="question">
-            <label class="q-label"><span class="qnum">Q22.</span> I work in a hostile or negative environment within my specific department or immediate working unit.</label>
-            <div class="hint">This refers to the climate, interactions, or treatment from colleagues, chairs, or supervisors in your immediate department (even if the institution as a whole is supportive).</div>
+            <label class="q-label"><span class="qnum">Q22.</span> I work in a hostile or negative environment within my
+              specific department or immediate working unit.</label>
+            <div class="hint">This refers to the climate, interactions, or treatment from colleagues, chairs, or
+              supervisors in your immediate department (even if the institution as a whole is supportive).</div>
             <div class="likert" id="dhwGroup"></div>
             <div class="likert-anchors"><span>Strongly Disagree</span><span>Strongly Agree</span></div>
           </div>
 
           <div class="question">
-            <label class="q-label"><span class="qnum">Q23.</span> My institution provides adequate mental health services.</label>
+            <label class="q-label"><span class="qnum">Q23.</span> My institution provides adequate mental health
+              services.</label>
             <div class="likert" id="amsGroup"></div>
             <div class="likert-anchors"><span>Strongly Disagree</span><span>Strongly Agree</span></div>
           </div>
 
           <div class="question">
-            <label class="q-label"><span class="qnum">Q24.</span> The climate at my institution supports anti-racism.</label>
-            <div class="hint">Anti-racism means treating people of all races fairly and standing up against unfair treatment based on race.</div>
+            <label class="q-label"><span class="qnum">Q24.</span> The climate at my institution supports
+              anti-racism.</label>
+            <div class="hint">Anti-racism means treating people of all races fairly and standing up against unfair
+              treatment based on race.</div>
             <div class="likert" id="arcGroup"></div>
             <div class="likert-anchors"><span>Strongly Disagree</span><span>Strongly Agree</span></div>
           </div>
 
           <div class="question">
-            <label class="q-label"><span class="qnum">Q25.</span> I feel free to express my academic/professional opinions.</label>
+            <label class="q-label"><span class="qnum">Q25.</span> I feel free to express my academic/professional
+              opinions.</label>
             <div class="likert" id="afGroup"></div>
             <div class="likert-anchors"><span>Strongly Disagree</span><span>Strongly Agree</span></div>
           </div>
@@ -1312,45 +1428,68 @@
           <p class="lead">Quick questions about exercise, chronic conditions, and substance habits.</p>
 
           <div class="question">
-            <label class="q-label"><span class="qnum">Q26.</span> In the <span style="color:#DC2626; font-weight:bold;">past week</span>, how many days did you exercise or walk for at least 30 minutes?</label>
+            <label class="q-label"><span class="qnum">Q26.</span> In the <span
+                style="color:#DC2626; font-weight:bold;">past week</span>, how many days did you exercise or walk for at
+              least 30 minutes?</label>
             <div class="radio-group">
-              <div class="radio-card"><input type="radio" id="ex1" name="exercise_raw" value="1" required /><label for="ex1">0 days</label></div>
-              <div class="radio-card"><input type="radio" id="ex2" name="exercise_raw" value="2" /><label for="ex2">1–2 days</label></div>
-              <div class="radio-card"><input type="radio" id="ex3" name="exercise_raw" value="3" /><label for="ex3">3–4 days</label></div>
-              <div class="radio-card"><input type="radio" id="ex4" name="exercise_raw" value="4" /><label for="ex4">5–6 days</label></div>
-              <div class="radio-card"><input type="radio" id="ex5" name="exercise_raw" value="5" /><label for="ex5">7 days</label></div>
+              <div class="radio-card"><input type="radio" id="ex1" name="exercise_raw" value="1" required /><label
+                  for="ex1">0 days</label></div>
+              <div class="radio-card"><input type="radio" id="ex2" name="exercise_raw" value="2" /><label for="ex2">1–2
+                  days</label></div>
+              <div class="radio-card"><input type="radio" id="ex3" name="exercise_raw" value="3" /><label for="ex3">3–4
+                  days</label></div>
+              <div class="radio-card"><input type="radio" id="ex4" name="exercise_raw" value="4" /><label for="ex4">5–6
+                  days</label></div>
+              <div class="radio-card"><input type="radio" id="ex5" name="exercise_raw" value="5" /><label for="ex5">7
+                  days</label></div>
             </div>
           </div>
 
           <div class="question">
-            <label class="q-label"><span class="qnum">Q27.</span> Do you have any diagnosed chronic health conditions?</label>
+            <label class="q-label"><span class="qnum">Q27.</span> Do you have any diagnosed chronic health
+              conditions?</label>
             <div class="radio-group">
-              <div class="radio-card"><input type="radio" id="chr0" name="chronic_illness" value="0" required /><label for="chr0">None</label></div>
-              <div class="radio-card"><input type="radio" id="chr1" name="chronic_illness" value="1" /><label for="chr1">Mild <span class="hint">(e.g., asthma, high cholesterol)</span></label></div>
-              <div class="radio-card"><input type="radio" id="chr2" name="chronic_illness" value="2" /><label for="chr2">Moderate <span class="hint">(e.g., thyroid, high BP, gastro, arthritis)</span></label></div>
-              <div class="radio-card"><input type="radio" id="chr3" name="chronic_illness" value="3" /><label for="chr3">Severe <span class="hint">(e.g., diabetes, epilepsy, cancer)</span></label></div>
+              <div class="radio-card"><input type="radio" id="chr0" name="chronic_illness" value="0" required /><label
+                  for="chr0">None</label></div>
+              <div class="radio-card"><input type="radio" id="chr1" name="chronic_illness" value="1" /><label
+                  for="chr1">Mild <span class="hint">(e.g., asthma, high cholesterol)</span></label></div>
+              <div class="radio-card"><input type="radio" id="chr2" name="chronic_illness" value="2" /><label
+                  for="chr2">Moderate <span class="hint">(e.g., thyroid, high BP, gastro, arthritis)</span></label>
+              </div>
+              <div class="radio-card"><input type="radio" id="chr3" name="chronic_illness" value="3" /><label
+                  for="chr3">Severe <span class="hint">(e.g., diabetes, epilepsy, cancer)</span></label></div>
             </div>
           </div>
 
           <div class="question" id="substanceUseQuestion">
-            <label class="q-label"><span class="qnum">Q28.</span> In the <span style="color:#DC2626; font-weight:bold;">past month</span>, did you use any of the following? <span class="hint">(tick all that apply)</span></label>
+            <label class="q-label"><span class="qnum">Q28.</span> In the <span
+                style="color:#DC2626; font-weight:bold;">past month</span>, did you use any of the following? <span
+                class="hint">(tick all that apply)</span></label>
             <button type="button" class="skip-btn" onclick="skipSubstanceUse()">Skip this question</button>
             <div class="check-grid" style="margin-top:8px;">
               <div class="check-item">
                 <input type="checkbox" id="sub_tob" name="substance_use" value="Tobacco" />
-                <label for="sub_tob">Tobacco / Nicotine <span style="font-size:0.82em; opacity:0.85; display:block; margin-top:2px;">Cigarettes, vapes, etc.</span></label>
+                <label for="sub_tob">Tobacco / Nicotine <span
+                    style="font-size:0.82em; opacity:0.85; display:block; margin-top:2px;">Cigarettes, vapes,
+                    etc.</span></label>
               </div>
               <div class="check-item">
                 <input type="checkbox" id="sub_alc" name="substance_use" value="Alcohol" />
-                <label for="sub_alc">Alcohol <span style="font-size:0.82em; opacity:0.85; display:block; margin-top:2px;">Beer, wine, spirits, etc.</span></label>
+                <label for="sub_alc">Alcohol <span
+                    style="font-size:0.82em; opacity:0.85; display:block; margin-top:2px;">Beer, wine, spirits,
+                    etc.</span></label>
               </div>
               <div class="check-item">
                 <input type="checkbox" id="sub_drug" name="substance_use" value="Drugs" />
-                <label for="sub_drug">Recreational drugs <span style="font-size:0.82em; opacity:0.85; display:block; margin-top:2px;">Cannabis, stimulants, etc.</span></label>
+                <label for="sub_drug">Recreational drugs <span
+                    style="font-size:0.82em; opacity:0.85; display:block; margin-top:2px;">Cannabis, stimulants,
+                    etc.</span></label>
               </div>
               <div class="check-item">
                 <input type="checkbox" id="sub_none" name="substance_use" value="None" />
-                <label for="sub_none">None of the above <span style="font-size:0.82em; opacity:0.85; display:block; margin-top:2px;">Did not use any in <span style="color:#DC2626; font-weight:bold;">past month</span></span></label>
+                <label for="sub_none">None of the above <span
+                    style="font-size:0.82em; opacity:0.85; display:block; margin-top:2px;">Did not use any in <span
+                      style="color:#DC2626; font-weight:bold;">past month</span></span></label>
               </div>
             </div>
           </div>
@@ -1367,17 +1506,21 @@
         <div class="card">
           <span class="step-badge">Section 7 of 9 · Wellbeing check</span>
           <h2>How have you been feeling?</h2>
-          <p class="lead">These are standard wellbeing questions used in research worldwide. There are no right or wrong answers: just be honest about the <span style="color:#DC2626; font-weight:bold;">past 2 weeks</span>.</p>
+          <p class="lead">These are standard wellbeing questions used in research worldwide. There are no right or wrong
+            answers: just be honest about the <span style="color:#DC2626; font-weight:bold;">past 2 weeks</span>.</p>
 
           <div class="callout">
             <strong>For each statement, pick how often it applied to you:</strong><br />
-            <strong>1</strong> Not at all &nbsp;·&nbsp; <strong>2</strong> A few days &nbsp;·&nbsp; <strong>3</strong> More than half the days &nbsp;·&nbsp; <strong>4</strong> Almost every day
+            <strong>1</strong> Not at all &nbsp;·&nbsp; <strong>2</strong> A few days &nbsp;·&nbsp; <strong>3</strong>
+            More than half the days &nbsp;·&nbsp; <strong>4</strong> Almost every day
           </div>
 
           <div id="phqContainer"></div>
 
           <div class="crisis-warn" id="crisisWarn">
-            <strong>If you're having thoughts of self-harm</strong>, please reach out: you matter. Talk to someone you trust (a family member, close friend, or colleague you respect), or call a confidential mental-health helpline in your country. You don't have to go through this alone.
+            <strong>If you're having thoughts of self-harm</strong>, please reach out: you matter. Talk to someone you
+            trust (a family member, close friend, or colleague you respect), or call a confidential mental-health
+            helpline in your country. You don't have to go through this alone.
           </div>
 
           <div class="button-row">
@@ -1392,10 +1535,12 @@
         <div class="card">
           <span class="step-badge">Section 8 of 9 · Worry &amp; anxiety</span>
           <h2>Almost done!</h2>
-          <p class="lead">7 more questions, same scale as before. These cover worry and anxious feelings in the <span style="color:#DC2626; font-weight:bold;">past 2 weeks</span>.</p>
+          <p class="lead">7 more questions, same scale as before. These cover worry and anxious feelings in the <span
+              style="color:#DC2626; font-weight:bold;">past 2 weeks</span>.</p>
 
           <div class="callout">
-            <strong>1</strong> Not at all &nbsp;·&nbsp; <strong>2</strong> A few days &nbsp;·&nbsp; <strong>3</strong> More than half the days &nbsp;·&nbsp; <strong>4</strong> Almost every day
+            <strong>1</strong> Not at all &nbsp;·&nbsp; <strong>2</strong> A few days &nbsp;·&nbsp; <strong>3</strong>
+            More than half the days &nbsp;·&nbsp; <strong>4</strong> Almost every day
           </div>
 
           <div id="gadContainer"></div>
@@ -1414,46 +1559,73 @@
           <h2>Almost there: just 2 quick ones</h2>
           <p class="lead">Your thoughts on StressEQ itself.</p>
 
-          <div class="question" style="background:linear-gradient(135deg,#EEF2FF,#FDF2F8); border:1px solid #C7D2FE; border-radius:16px; padding:20px;">
-            <label class="q-label" style="font-size:1.1em; font-weight:800; color:var(--text); margin-bottom:12px; display:block; line-height:1.4;">
-              <span class="qnum">Q46.</span> Be honest: if StressEQ could <span style="color:var(--primary);">detect your stress levels rising</span> and suggest evidence-based coaching actions, would you use it?
+          <div class="question"
+            style="background:linear-gradient(135deg,#EEF2FF,#FDF2F8); border:1px solid #C7D2FE; border-radius:16px; padding:20px;">
+            <label class="q-label"
+              style="font-size:1.1em; font-weight:800; color:var(--text); margin-bottom:12px; display:block; line-height:1.4;">
+              <span class="qnum">Q46.</span> Be honest: if StressEQ could <span style="color:var(--primary);">detect
+                your stress levels rising</span> and suggest evidence-based coaching actions, would you use it?
             </label>
             <div class="radio-group" style="margin-top:4px;">
-              <div class="radio-card"><input type="radio" id="use1" name="would_use" value="Yes: I genuinely need something like this" required /><label for="use1">💯 Yes: I genuinely need something like this</label></div>
-              <div class="radio-card"><input type="radio" id="use2" name="would_use" value="No: stress isn't really a problem for me" /><label for="use2">😌 Stress isn't really a problem for me</label></div>
+              <div class="radio-card"><input type="radio" id="use1" name="would_use"
+                  value="Yes: I genuinely need something like this" required /><label for="use1">💯 Yes: I genuinely
+                  need something like this</label></div>
+              <div class="radio-card"><input type="radio" id="use2" name="would_use"
+                  value="No: stress isn't really a problem for me" /><label for="use2">😌 Stress isn't really a problem
+                  for me</label></div>
             </div>
           </div>
 
           <div class="question">
-            <label class="q-label"><span class="qnum">Q47.</span> Of these, which matter MOST to YOUR stress? <span class="hint">(select all that apply)</span></label>
+            <label class="q-label"><span class="qnum">Q47.</span> Of these, which matter MOST to YOUR stress? <span
+                class="hint">(select all that apply)</span></label>
             <div class="picker-counter" id="topPickCounter">0 selected</div>
             <div class="check-grid" id="topPicks">
-              <div class="check-item"><input type="checkbox" id="top1" name="top" value="work_exhaustion" /><label for="top1">Work exhaustion</label></div>
-              <div class="check-item"><input type="checkbox" id="top2" name="top" value="burnout_financial_stress" /><label for="top2">Financial stress</label></div>
-              <div class="check-item"><input type="checkbox" id="top3" name="top" value="burnout_sleep_deprivation" /><label for="top3">Sleep deprivation</label></div>
-              <div class="check-item"><input type="checkbox" id="top4" name="top" value="physical_activity" /><label for="top4">Physical activity</label></div>
-              <div class="check-item"><input type="checkbox" id="top5" name="top" value="institutional_care" /><label for="top5">Institutional care</label></div>
-              <div class="check-item"><input type="checkbox" id="top6" name="top" value="burnout_discrimination" /><label for="top6">Discrimination</label></div>
-              <div class="check-item"><input type="checkbox" id="top7" name="top" value="burnout_anxiety" /><label for="top7">Anxiety or worry</label></div>
-              <div class="check-item"><input type="checkbox" id="top8" name="top" value="burnout_grief" /><label for="top8">Grief or loss</label></div>
-              <div class="check-item"><input type="checkbox" id="top9" name="top" value="chronic_illness" /><label for="top9">Chronic illness</label></div>
-              <div class="check-item"><input type="checkbox" id="top10" name="top" value="campus_belonging" /><label for="top10">Campus belonging</label></div>
-              <div class="check-item"><input type="checkbox" id="top11" name="top" value="interpersonal_conflict" /><label for="top11">Interpersonal conflict</label></div>
+              <div class="check-item"><input type="checkbox" id="top1" name="top" value="work_exhaustion" /><label
+                  for="top1">Work exhaustion</label></div>
+              <div class="check-item"><input type="checkbox" id="top2" name="top"
+                  value="burnout_financial_stress" /><label for="top2">Financial stress</label></div>
+              <div class="check-item"><input type="checkbox" id="top3" name="top"
+                  value="burnout_sleep_deprivation" /><label for="top3">Sleep deprivation</label></div>
+              <div class="check-item"><input type="checkbox" id="top4" name="top" value="physical_activity" /><label
+                  for="top4">Physical activity</label></div>
+              <div class="check-item"><input type="checkbox" id="top5" name="top" value="institutional_care" /><label
+                  for="top5">Institutional care</label></div>
+              <div class="check-item"><input type="checkbox" id="top6" name="top"
+                  value="burnout_discrimination" /><label for="top6">Discrimination</label></div>
+              <div class="check-item"><input type="checkbox" id="top7" name="top" value="burnout_anxiety" /><label
+                  for="top7">Anxiety or worry</label></div>
+              <div class="check-item"><input type="checkbox" id="top8" name="top" value="burnout_grief" /><label
+                  for="top8">Grief or loss</label></div>
+              <div class="check-item"><input type="checkbox" id="top9" name="top" value="chronic_illness" /><label
+                  for="top9">Chronic illness</label></div>
+              <div class="check-item"><input type="checkbox" id="top10" name="top" value="campus_belonging" /><label
+                  for="top10">Campus belonging</label></div>
+              <div class="check-item"><input type="checkbox" id="top11" name="top"
+                  value="interpersonal_conflict" /><label for="top11">Interpersonal conflict</label></div>
             </div>
           </div>
 
           <hr class="section-divider" />
 
-          <div style="background: linear-gradient(135deg, var(--soft) 0%, #EEF2FF 100%); border: 1px solid var(--border); border-radius: 16px; padding: 20px; margin-top: 4px;">
+          <div
+            style="background: linear-gradient(135deg, var(--soft) 0%, #EEF2FF 100%); border: 1px solid var(--border); border-radius: 16px; padding: 20px; margin-top: 4px;">
             <div style="display:flex; align-items:center; gap:10px; margin-bottom:10px;">
               <span style="font-size:1.6em;">📬</span>
               <div>
-                <div style="font-weight:700; font-size:0.95em; color:var(--text);">Stay in the loop <span style="background:#EEF2FF; color:#4F46E5; font-size:0.72em; font-weight:600; padding:2px 8px; border-radius:20px; margin-left:4px; vertical-align:middle;">Optional</span></div>
-                <div style="font-size:0.8em; color:var(--muted); margin-top:2px;">Drop your email if you'd like us to share our findings when StressEQ launches.</div>
+                <div style="font-weight:700; font-size:0.95em; color:var(--text);">Stay in the loop <span
+                    style="background:#EEF2FF; color:#4F46E5; font-size:0.72em; font-weight:600; padding:2px 8px; border-radius:20px; margin-left:4px; vertical-align:middle;">Optional</span>
+                </div>
+                <div style="font-size:0.8em; color:var(--muted); margin-top:2px;">Drop your email if you'd like us to
+                  share our findings when StressEQ launches.</div>
               </div>
             </div>
-            <input type="email" name="email" id="emailInput" placeholder="" autocomplete="email" style="width:100%; box-sizing:border-box; border:1.5px solid var(--border); border-radius:10px; padding:11px 14px; font-size:0.95em; background:var(--card); color:var(--text); outline:none; transition:border-color 0.2s;" oninput="validateEmailField(this)" onfocus="this.style.borderColor='var(--primary)'" onblur="this.style.borderColor=this.value&&!this.validity.valid?'#DC2626':this.value?'#10B981':'var(--border)'" />
-            <div style="font-size:0.75em; color:var(--muted); margin-top:8px; display:flex; align-items:center; gap:5px;">
+            <input type="email" name="email" id="emailInput" placeholder="" autocomplete="email"
+              style="width:100%; box-sizing:border-box; border:1.5px solid var(--border); border-radius:10px; padding:11px 14px; font-size:0.95em; background:var(--card); color:var(--text); outline:none; transition:border-color 0.2s;"
+              oninput="validateEmailField(this)" onfocus="this.style.borderColor='var(--primary)'"
+              onblur="this.style.borderColor=this.value&&!this.validity.valid?'#DC2626':this.value?'#10B981':'var(--border)'" />
+            <div
+              style="font-size:0.75em; color:var(--muted); margin-top:8px; display:flex; align-items:center; gap:5px;">
               🔒 Only you and the FYP team will see this. Leave blank to stay fully anonymous.
             </div>
           </div>
@@ -1476,17 +1648,21 @@
 
           <!-- Profile card display removed for consistency with student survey -->
 
-          <div style="background:var(--soft); border-radius:12px; padding:16px; margin:20px 0; font-size:0.88em; color:var(--muted); line-height:1.6;">
-            🔒 Your answers are stored anonymously under a random ID: never linked to your name or university account.<br>
+          <div
+            style="background:var(--soft); border-radius:12px; padding:16px; margin:20px 0; font-size:0.88em; color:var(--muted); line-height:1.6;">
+            🔒 Your answers are stored anonymously under a random ID: never linked to your name or university
+            account.<br>
             📊 Results will be used to validate the StressEQ AI and shared only as group statistics in our FYP.
           </div>
 
-          <div style="background:var(--soft); border-radius:12px; padding:12px 16px; margin:12px 0; font-size:0.83em; color:var(--muted);">
+          <div
+            style="background:var(--soft); border-radius:12px; padding:12px 16px; margin:12px 0; font-size:0.83em; color:var(--muted);">
             Anonymous ID: <strong id="thankYouResponseId" style="color:var(--text); word-break:break-all;"></strong>
           </div>
 
           <div style="display:flex; justify-content:center; gap:12px; flex-wrap:wrap; margin-top:12px;">
-            <button type="button" class="share-btn" onclick="shareLink()" style="margin-top:0;">Share survey link 🚀</button>
+            <button type="button" class="share-btn" onclick="shareLink()" style="margin-top:0;">Share survey link
+              🚀</button>
           </div>
           <p style="color:var(--muted); font-size:0.88em; margin-top:20px;" id="submitStatus"></p>
         </div>
@@ -1740,16 +1916,16 @@
     const TOTAL_QUESTIONS = 47;
     const QUESTION_FIELDS = {
       // Step 1 — About you
-      1:  ['university_select', 'university_custom'],
-      2:  ['country_select', 'country_custom'],
-      3:  ['age_group'],
-      4:  ['gender'],
-      5:  ['race'],
-      6:  ['role'],
-      7:  ['tenure_status'],
-      8:  ['dependent_children'],
+      1: ['university_select', 'university_custom'],
+      2: ['country_select', 'country_custom'],
+      3: ['age_group', 'age_custom'],
+      4: ['gender'],
+      5: ['race'],
+      6: ['role'],
+      7: ['tenure_status'],
+      8: ['dependent_children'],
       // Step 2 — Personal context
-      9:  ['relationship_status'],
+      9: ['relationship_status'],
       10: ['therapy_history'],
       // Step 3 — Occupational burnout
       11: ['work_exhaustion'],
@@ -1807,21 +1983,21 @@
     }
 
     const STEP_Q_RANGE = {
-      1:  { start: 1,  end: 8  },
-      2:  { start: 9,  end: 10 },
-      3:  { start: 11, end: 13 },
-      4:  { start: 14, end: 18 },
-      5:  { start: 19, end: 25 },
-      6:  { start: 26, end: 28 },
-      7:  { start: 29, end: 38 },
-      8:  { start: 39, end: 45 },
-      9:  { start: 46, end: 47 },
+      1: { start: 1, end: 8 },
+      2: { start: 9, end: 10 },
+      3: { start: 11, end: 13 },
+      4: { start: 14, end: 18 },
+      5: { start: 19, end: 25 },
+      6: { start: 26, end: 28 },
+      7: { start: 29, end: 38 },
+      8: { start: 39, end: 45 },
+      9: { start: 46, end: 47 },
     };
 
     function updateProgressBar() {
       const pct = Math.round((currentStep / (totalSteps - 1)) * 100);
       document.getElementById('progressBar').style.width = pct + '%';
-      const pctEl     = document.getElementById('progressPct');
+      const pctEl = document.getElementById('progressPct');
       const counterEl = document.getElementById('qCounterText');
 
       const answered = countAnsweredQuestions();
@@ -1863,7 +2039,7 @@
 
         const wrapper = document.createElement('div');
         wrapper.className = 'custom-select-wrapper';
-        
+
         select.parentNode.insertBefore(wrapper, select);
         wrapper.appendChild(select);
         select.classList.add('visual-hidden');
@@ -1871,18 +2047,18 @@
         const trigger = document.createElement('div');
         trigger.className = 'custom-select-trigger';
         trigger.tabIndex = 0;
-        
+
         const triggerText = document.createElement('span');
         triggerText.className = 'custom-select-text';
-        
+
         const selectedOpt = select.options[select.selectedIndex] || select.options[0];
         triggerText.textContent = selectedOpt ? selectedOpt.textContent : '';
         trigger.appendChild(triggerText);
-        
+
         const arrow = document.createElement('span');
         arrow.className = 'custom-select-arrow';
         trigger.appendChild(arrow);
-        
+
         wrapper.appendChild(trigger);
 
         const optionsWrapper = document.createElement('div');
@@ -1896,7 +2072,7 @@
           optionEl.className = 'custom-select-option';
           optionEl.textContent = opt.textContent;
           optionEl.dataset.value = opt.value;
-          
+
           if (idx === select.selectedIndex) {
             optionEl.classList.add('selected');
           }
@@ -1905,12 +2081,12 @@
             e.stopPropagation();
             select.value = opt.value;
             triggerText.textContent = opt.textContent;
-            
+
             optionsContainer.querySelectorAll('.custom-select-option').forEach(el => el.classList.remove('selected'));
             optionEl.classList.add('selected');
-            
+
             wrapper.classList.remove('open');
-            
+
             select.dispatchEvent(new Event('change', { bubbles: true }));
             select.dispatchEvent(new Event('input', { bubbles: true }));
           });
@@ -1940,7 +2116,7 @@
             const thumbHeight = Math.max((ch / sh) * ch, 24); // min 24px thumb
             const maxThumbTop = Math.max(ch - thumbHeight - 12, 0); // account for track offsets (6px top + 6px bottom = 12px)
             const thumbTop = Math.max(scrollPercent * maxThumbTop, 0);
-            
+
             scrollThumb.style.height = `${thumbHeight}px`;
             scrollThumb.style.transform = `translateY(${thumbTop}px)`;
           }
@@ -2007,6 +2183,16 @@
       });
     }
 
+    function toggleAgeCustomField() {
+      const under25Checked = document.getElementById('ag0')?.checked;
+      const inp = document.getElementById('ageCustomInput');
+      if (inp) {
+        inp.style.display = under25Checked ? 'block' : 'none';
+        inp.required = !!under25Checked;
+        if (!under25Checked) inp.value = '';
+      }
+    }
+
     function toggleUniversityCustomField() {
       const sel = document.getElementById('universitySelect');
       const inp = document.getElementById('universityCustomInput');
@@ -2044,9 +2230,9 @@
       if (!questionEl) return;
       questionEl.querySelectorAll('input[type="radio"], input[type="checkbox"]').forEach(inp => {
         inp.disabled = true;
-        inp.checked  = false;
+        inp.checked = false;
       });
-      ['radio-group','check-grid','likert','freq4','row-2'].forEach(cls => {
+      ['radio-group', 'check-grid', 'likert', 'freq4', 'row-2'].forEach(cls => {
         const el = questionEl.querySelector('.' + cls);
         if (el) el.classList.add('options-disabled');
       });
@@ -2233,7 +2419,7 @@
     function saveStep(step) {
       const stepEl = document.querySelector(`.step[data-step="${step}"]`);
       if (!stepEl) return;
-      
+
       stepEl.querySelectorAll('input[type="checkbox"]').forEach(el => {
         if (el.name && el.name !== 'top') data[el.name] = [];
       });
@@ -2297,8 +2483,9 @@
         });
         toggleUniversityCustomField();
         toggleCountryCustomField();
+        toggleAgeCustomField();
         syncCustomSelects();
-      } catch (e) {}
+      } catch (e) { }
     }
 
     let saveTimer;
@@ -2367,7 +2554,7 @@
       data.physical_activity = exVal === 4 ? 4 : exVal === 5 ? 6 : exVal;
 
       data.submitted_at = new Date().toISOString();
-      data.response_id = 'rf_' + Math.random().toString(36).slice(2, 10) + '_' + Date.now();
+      data.response_id = 'rf-' + Math.random().toString(36).slice(2, 10).toUpperCase();
 
       localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
 
@@ -2380,8 +2567,12 @@
 
       if (SUBMIT_ENDPOINT) {
         try {
+          const payload = { ...data };
+          if (payload.age_group === 'Under 25' && payload.age_custom) {
+            payload.age_group = `Under 25 (${payload.age_custom})`;
+          }
           const formBody = new URLSearchParams();
-          formBody.append('payload', JSON.stringify(data));
+          formBody.append('payload', JSON.stringify(payload));
           await fetch(SUBMIT_ENDPOINT, { method: 'POST', mode: 'no-cors', body: formBody });
           const status = document.getElementById('submitStatus');
           if (status) {
@@ -2504,24 +2695,28 @@
     // ============================================================
     function downloadScaledCSV() {
       const scaledData = {};
-      
+
       scaledData.response_id = data.response_id;
       scaledData.submitted_at = data.submitted_at;
       scaledData.university = data.university || '';
       scaledData.country = data.country || '';
-      
+
       // Calculate target stress level (Low=1, Moderate=2, High=3)
       scaledData.stress_level = data.stress_level === 'High' ? 3 : data.stress_level === 'Medium' ? 2 : 1;
-      
+
       // Demographics
-      scaledData.age_group = parseInt(data.age_group || 2);
+      if (data.age_group === 'Under 25') {
+        scaledData.age_group = 1;
+      } else {
+        scaledData.age_group = parseInt(data.age_group || 2);
+      }
       scaledData.is_female = data.gender === 'Female' ? 1 : 0;
       scaledData.is_male = data.gender === 'Male' ? 1 : 0;
       scaledData.is_other = (data.gender !== 'Female' && data.gender !== 'Male') ? 1 : 0;
       scaledData.is_faculty = data.role === 'Faculty' ? 1 : 0;
       scaledData.dependent_children = parseInt(data.dependent_children || 0);
       scaledData.relationship_status = parseInt(data.relationship_status || 5);
-      
+
       const therapyMap = {
         'Yes, currently receiving support': 1,
         'Yes, received support in the past': 2,
@@ -2530,7 +2725,7 @@
         'Prefer not to say': 5
       };
       scaledData.therapy_history = therapyMap[data.therapy_history] || 5;
-      
+
       const raceMap = {
         'Asian': 3, '3': 3,
         'Black': 2, '2': 2,
@@ -2540,22 +2735,22 @@
         'Hispanic': 1, '1': 1
       };
       scaledData.race = raceMap[data.race] || 5;
-      
+
       // Tenure Status
       scaledData.tenure_status = scaledData.is_faculty ? parseInt(data.tenure_status || 4) : 0;
-      
+
       // Occupational
       scaledData.work_exhaustion = parseInt(data.work_exhaustion || 1);
       scaledData.emotional_toll = parseInt(data.emotional_toll || 1);
       scaledData.productivity_loss = parseInt(data.productivity_loss || 0);
-      
+
       // Burnout Drivers
       scaledData.burnout_discrimination = parseInt(data.burnout_discrimination || 1);
       scaledData.burnout_anxiety = parseInt(data.burnout_anxiety || 1);
       scaledData.burnout_grief = parseInt(data.burnout_grief || 1);
       scaledData.burnout_financial_stress = parseInt(data.burnout_financial_stress || 1);
       scaledData.burnout_sleep_deprivation = parseInt(data.burnout_sleep_deprivation || 1);
-      
+
       // Climate
       scaledData.institutional_care = parseInt(data.institutional_care || 3);
       scaledData.hostile_work_environment = parseInt(data.hostile_work_environment || 3);
@@ -2564,20 +2759,20 @@
       scaledData.antiracism_climate = parseInt(data.antiracism_climate || 3);
       scaledData.academic_freedom = parseInt(data.academic_freedom || 3);
       scaledData.campus_belonging = parseInt(data.campus_belonging || 3);
-      
+
       // Health & Lifestyle
       const exVal = parseInt(data.exercise_raw || 1);
       scaledData.physical_activity = exVal === 4 ? 4 : exVal === 5 ? 6 : exVal;
-      
+
       // Substance use score 0-2 (tobacco used + alcohol used + drug used, capped at 2)
       const subList = data.substance_use || [];
       const tobaccoUsed = subList.includes('Tobacco') ? 1 : 0;
       const alcoholUsed = subList.includes('Alcohol') ? 1 : 0;
       const drugUsed = subList.includes('Drugs') ? 1 : 0;
       scaledData.substance_use_score = Math.min(2, tobaccoUsed + alcoholUsed + drugUsed);
-      
+
       scaledData.chronic_illness = parseInt(data.chronic_illness || 0);
-      
+
       // PHQ-9 & GAD-7 Items
       for (let i = 1; i <= 10; i++) {
         scaledData[`phq${i}`] = parseInt(data[`phq${i}`] || 1);
@@ -2587,12 +2782,12 @@
         scaledData[`gad${i}`] = parseInt(data[`gad${i}`] || 1);
       }
       scaledData.gad7_score = parseInt(data.gad7_score || 0);
-      
+
       // Feedback & email
       scaledData.would_use = data.would_use || '';
       scaledData.top_features = data.top_features || '';
       scaledData.email = data.email || '';
- 
+
       const cols = [
         'stress_level', 'age_group', 'is_female', 'is_male', 'is_other', 'is_faculty',
         'dependent_children', 'relationship_status', 'therapy_history', 'race', 'tenure_status',
@@ -2605,32 +2800,36 @@
         'gad1', 'gad2', 'gad3', 'gad4', 'gad5', 'gad6', 'gad7', 'gad7_score',
         'university', 'country', 'response_id', 'submitted_at', 'would_use', 'top_features', 'email'
       ];
- 
+
       triggerCSVDownload(scaledData, cols, `stresseq_faculty_scaled_${Date.now()}.csv`);
     }
- 
+
     function downloadUnscaledCSV() {
       const unscaledData = {};
-      
+
       unscaledData.response_id = data.response_id;
       unscaledData.submitted_at = data.submitted_at;
       unscaledData.university = data.university || '';
       unscaledData.country = data.country || '';
-      
+
       // Target
       unscaledData.stress_level = data.stress_level === 'High' ? 'High' : data.stress_level === 'Medium' ? 'Medium' : 'Low';
-      
+
       // Demographics & Role
-      const ageLabels = { 2: '25-34', 3: '35-44', 4: '45-54', 5: '55-64', 6: '65+' };
-      unscaledData.age_group = ageLabels[data.age_group] || '25-34';
+      const ageLabels = { 1: 'Under 25', 2: '25-34', 3: '35-44', 4: '45-54', 5: '55-64', 6: '65+' };
+      if (data.age_group === 'Under 25') {
+        unscaledData.age_group = data.age_custom ? `Under 25 (${data.age_custom})` : 'Under 25';
+      } else {
+        unscaledData.age_group = ageLabels[data.age_group] || '25-34';
+      }
       unscaledData.gender = data.gender || 'Other';
       unscaledData.role = data.role || 'Staff';
       unscaledData.dependent_children = data.dependent_children ? `${data.dependent_children} children` : '0 children';
-      
+
       const relshipLabels = { 1: 'Single', 2: 'In a Relationship', 3: 'Married', 4: 'Divorced / Widowed', 5: 'Other' };
       unscaledData.relationship_status = relshipLabels[data.relationship_status] || 'Single';
       unscaledData.therapy_history = data.therapy_history || 'Prefer not to say';
-      
+
       const raceUnscaledMap = {
         'Asian': 'Asian', '3': 'Asian',
         'Black': 'Black', '2': 'Black',
@@ -2640,44 +2839,44 @@
         'Hispanic': 'Hispanic', '1': 'Hispanic'
       };
       unscaledData.race = raceUnscaledMap[data.race] || 'Other';
-      
+
       // Tenure Status
       const isFaculty = data.role === 'Faculty';
       const tenureLabels = { 1: 'Tenured', 2: 'Tenure Track', 3: 'Non-Tenure Track', 4: 'Not Applicable' };
       unscaledData.tenure_status = isFaculty ? (tenureLabels[data.tenure_status] || 'Not Applicable') : 'Staff (Not Applicable)';
-      
+
       // Burnout
       const freqLabels = { 1: 'Never', 2: 'Rarely', 3: 'Sometimes', 4: 'Often', 5: 'Always' };
       unscaledData.work_exhaustion = freqLabels[data.work_exhaustion] || 'Never';
       unscaledData.emotional_toll = freqLabels[data.emotional_toll] || 'Never';
-      
+
       const prodLabels = { 0: 'Not Applicable', 1: 'Never', 2: 'Rarely', 3: 'Sometimes' };
       unscaledData.productivity_loss = prodLabels[data.productivity_loss] || 'Not Applicable';
-      
+
       const boLabels = { 1: 'Not a factor', 2: 'Minor factor', 3: 'Major factor' };
       unscaledData.burnout_discrimination = boLabels[data.burnout_discrimination] || 'Not a factor';
       unscaledData.burnout_financial_stress = boLabels[data.burnout_financial_stress] || 'Not a factor';
       unscaledData.burnout_sleep_deprivation = boLabels[data.burnout_sleep_deprivation] || 'Not a factor';
       unscaledData.burnout_anxiety = boLabels[data.burnout_anxiety] || 'Not a factor';
       unscaledData.burnout_grief = boLabels[data.burnout_grief] || 'Not a factor';
-      
+
       // Climate
       const likertLabels5 = { 1: 'Strongly Disagree', 2: 'Disagree', 3: 'Neutral', 4: 'Agree', 5: 'Strongly Agree', 6: 'Strongly Agree' };
       unscaledData.institutional_care = likertLabels5[data.institutional_care] || 'Neutral';
       unscaledData.campus_belonging = likertLabels5[data.campus_belonging] || 'Neutral';
-      
+
       const likertLabels6 = { 1: 'Strongly Disagree', 2: 'Disagree', 3: 'Somewhat Disagree', 4: 'Somewhat Agree', 5: 'Agree', 6: 'Strongly Agree' };
       unscaledData.hostile_work_environment = likertLabels6[data.hostile_work_environment] || 'Somewhat Disagree';
       unscaledData.departmental_hostile_environment = likertLabels6[data.departmental_hostile_environment] || 'Somewhat Disagree';
       unscaledData.adequate_mh_services = likertLabels6[data.adequate_mh_services] || 'Somewhat Agree';
       unscaledData.antiracism_climate = likertLabels6[data.antiracism_climate] || 'Somewhat Disagree';
       unscaledData.academic_freedom = likertLabels6[data.academic_freedom] || 'Somewhat Disagree';
-      
+
       // Health & Lifestyle
       unscaledData.exercise_raw = parseInt(data.exercise_raw || 1);
       const exLabels = { 1: '0 days', 2: '1-2 days', 3: '3-4 days', 4: '5-6 days', 5: '7 days' };
       unscaledData.physical_activity = exLabels[data.exercise_raw] || '0 days';
-      
+
       const subList = data.substance_use || [];
       unscaledData.tobacco = subList.includes('Tobacco') ? 'Sometimes' : 'Never';
       unscaledData.alcohol = subList.includes('Alcohol') ? 'Sometimes' : 'Never';
@@ -2685,10 +2884,10 @@
       const susScore = (unscaledData.tobacco === 'Sometimes' ? 1 : 0) + (unscaledData.alcohol === 'Sometimes' ? 1 : 0) + (unscaledData.drugs === 'Yes' ? 1 : 0);
       const susLabels = { 0: '0 (None)', 1: '1 (Mild)', 2: '2 (Moderate)', 3: '3 (Severe)' };
       unscaledData.substance_use_score = susLabels[susScore] || '0 (None)';
-      
+
       const chrLabels = { 0: 'None', 1: 'Yes' };
       unscaledData.chronic_illness = chrLabels[data.chronic_illness] || 'None';
-      
+
       // PHQ-9 & GAD-7 Items
       const freq4Labels = { 1: 'Not at all', 2: 'A few days', 3: 'More than half the days', 4: 'Almost every day' };
       for (let i = 1; i <= 10; i++) {
@@ -2701,12 +2900,12 @@
         unscaledData[`gad${i}`] = freq4Labels[val] || 'Not at all';
       }
       unscaledData.gad7_score = parseInt(data.gad7_score || 0);
- 
+
       // Feedback & email
       unscaledData.would_use = data.would_use || '';
       unscaledData.top_features = data.top_features || '';
       unscaledData.email = data.email || '';
- 
+
       const cols = [
         'response_id', 'submitted_at', 'university', 'country',
         'age_group', 'gender', 'role', 'tenure_status', 'dependent_children', 'race', 'relationship_status', 'therapy_history',
@@ -2718,7 +2917,7 @@
         'gad1', 'gad2', 'gad3', 'gad4', 'gad5', 'gad6', 'gad7', 'gad7_score',
         'stress_level', 'would_use', 'top_features', 'email'
       ];
- 
+
       triggerCSVDownload(unscaledData, cols, `stresseq_faculty_unscaled_${Date.now()}.csv`);
     }
 
