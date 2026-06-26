@@ -906,7 +906,7 @@
 <body>
   <div class="shell">
     <div class="topbar">
-      <div class="brand">StressEQ<span class="dot">.</span> <span
+      <div class="brand">StressEQ <span class="dot">●</span> <span
           style="font-weight:400; font-size:0.85em; color:var(--muted);">Faculty &amp; Staff</span></div>
       <div class="save-state" id="saveState">Auto-saved ✓</div>
     </div>
@@ -2592,7 +2592,7 @@
           const formBody = new URLSearchParams();
           formBody.append('payload', JSON.stringify(payload));
           await fetch(SUBMIT_ENDPOINT, { method: 'POST', mode: 'no-cors', body: formBody });
-          
+
           showStep(10);
           const ridEl = document.getElementById('thankYouResponseId');
           if (ridEl) ridEl.textContent = data.response_id;
