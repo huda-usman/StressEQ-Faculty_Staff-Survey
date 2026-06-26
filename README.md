@@ -1,32 +1,31 @@
-<table width="100%" border="0" style="border: none; border-collapse: collapse; background: transparent;">
-  <tr style="border: none; background: transparent;">
-    <td width="75%" style="border: none; text-align: left; vertical-align: middle; background: transparent;">
-      <h1 style="color: #6D28D9; border: none; margin: 0;">🧠 StressEQ: Faculty/Staff Survey</h1>
-      <p style="font-size: 1.1em; font-weight: bold; margin: 4px 0;">AI-Powered Faculty/Staff Stress Detection & Burnout Forecaster</p>
-      <p style="color: #4B5563; margin: 8px 0 16px 0;">An intelligent, anonymous platform designed for university faculty and staff to report workload, work environment, and lifestyle factors to predict occupational stress.</p>
-      <p style="margin: 0;">
-        <a href="#"><img src="https://img.shields.io/badge/Status-Active-success?style=for-the-badge&logo=github&logoColor=white&color=8B5CF6" alt="Status"/></a>
-        <a href="#"><img src="https://img.shields.io/badge/Stack-HTML5%20%7C%20CSS3%20%7C%20JS-blue?style=for-the-badge&logo=javascript&logoColor=white&color=7C3AED" alt="Stack"/></a>
-        <a href="#"><img src="https://img.shields.io/badge/License-MIT-lightgrey?style=for-the-badge&color=A78BFA" alt="License"/></a>
-      </p>
-    </td>
-    <td width="25%" style="border: none; text-align: center; vertical-align: middle; background: transparent;">
-      <!-- Floating Sparkle Animation -->
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
-        <g>
-          <animateTransform attributeName="transform" type="translate" values="0,4; 0,-6; 0,4" dur="4s" repeatCount="indefinite" />
-          <path d="M50 15 C50 35 35 50 15 50 C35 50 50 65 50 85 C50 65 65 50 85 50 C65 50 50 35 50 15 Z" fill="#8B5CF6" />
-          <path d="M50 25 C50 40 40 50 25 50 C40 50 50 60 50 75 C50 60 60 50 75 50 C60 50 50 40 50 25 Z" fill="#A78BFA" />
-          <circle cx="50" cy="50" r="4" fill="#FFFFFF" />
-        </g>
-        <ellipse cx="50" cy="92" rx="14" ry="2" fill="#C084FC" opacity="0.3">
-          <animate attributeName="rx" values="14; 9; 14" dur="4s" repeatCount="indefinite" />
-          <animate attributeName="opacity" values="0.3; 0.15; 0.3" dur="4s" repeatCount="indefinite" />
-        </ellipse>
-      </svg>
-    </td>
-  </tr>
-</table>
+<div align="center">
+  <br />
+  <p align="center">
+    <!-- Floating Sparkle Animation -->
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="90" height="90">
+      <g>
+        <animateTransform attributeName="transform" type="translate" values="0,4; 0,-6; 0,4" dur="4s" repeatCount="indefinite" />
+        <path d="M50 15 C50 35 35 50 15 50 C35 50 50 65 50 85 C50 65 65 50 85 50 C65 50 50 35 50 15 Z" fill="#8B5CF6" />
+        <path d="M50 25 C50 40 40 50 25 50 C40 50 50 60 50 75 C50 60 60 50 75 50 C60 50 50 40 50 25 Z" fill="#A78BFA" />
+        <circle cx="50" cy="50" r="4" fill="#FFFFFF" />
+      </g>
+      <ellipse cx="50" cy="92" rx="14" ry="2" fill="#C084FC" opacity="0.3">
+        <animate attributeName="rx" values="14; 9; 14" dur="4s" repeatCount="indefinite" />
+        <animate attributeName="opacity" values="0.3; 0.15; 0.3" dur="4s" repeatCount="indefinite" />
+      </ellipse>
+    </svg>
+  </p>
+  <h1 align="center" style="color: #6D28D9;">🧠 StressEQ: Faculty/Staff Survey</h1>
+  <p align="center"><b>AI-Powered Faculty/Staff Stress Detection & Burnout Forecaster</b></p>
+  <p align="center"><i>An intelligent, anonymous platform designed for university faculty and staff to report workload, work environment, and lifestyle factors to predict occupational stress.</i></p>
+  
+  <p align="center">
+    <a href="#"><img src="https://img.shields.io/badge/Status-Active-success?style=for-the-badge&logo=github&logoColor=white&color=8B5CF6" alt="Status"/></a>
+    <a href="#"><img src="https://img.shields.io/badge/Stack-HTML5%20%7C%20CSS3%20%7C%20JS-blue?style=for-the-badge&logo=javascript&logoColor=white&color=7C3AED" alt="Stack"/></a>
+    <a href="#"><img src="https://img.shields.io/badge/License-MIT-lightgrey?style=for-the-badge&color=A78BFA" alt="License"/></a>
+  </p>
+  <br />
+</div>
 
 ---
 
