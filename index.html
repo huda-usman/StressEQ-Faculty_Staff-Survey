@@ -1859,6 +1859,11 @@
       updateProgressBar();
       window.scrollTo({ top: 0, behavior: 'smooth' });
 
+      // Save step to localStorage if it's a valid filling step (0 to 9)
+      if (n < 10) {
+        localStorage.setItem(STORAGE_KEY + '_step', n);
+      }
+
       if (n > 0 && STEP_TOASTS && STEP_TOASTS[n]) {
         setTimeout(() => showToast(STEP_TOASTS[n]), 400);
       }
@@ -2417,6 +2422,8 @@
     // Save / Load
     // ============================================================
     function saveStep(step) {
+      // Don't save progress on the loading/final screens (step 10)
+      if (step >= 10) return;
       const stepEl = document.querySelector(`.step[data-step="${step}"]`);
       if (!stepEl) return;
 
@@ -2485,6 +2492,15 @@
         toggleCountryCustomField();
         toggleAgeCustomField();
         syncCustomSelects();
+
+        // Restore last active step
+        const savedStep = localStorage.getItem(STORAGE_KEY + '_step');
+        if (savedStep !== null) {
+          const stepNum = parseInt(savedStep, 10);
+          if (!isNaN(stepNum) && stepNum >= 0 && stepNum < 10) {
+            showStep(stepNum);
+          }
+        }
       } catch (e) { }
     }
 
@@ -2556,15 +2572,6 @@
       data.submitted_at = new Date().toISOString();
       data.response_id = 'rf-' + Math.random().toString(36).slice(2, 10).toUpperCase();
 
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
-
-      showStep(10);
-      const ridEl = document.getElementById('thankYouResponseId');
-      if (ridEl) ridEl.textContent = data.response_id;
-
-      launchConfetti();
-      // revealProfileCard not called to match student survey layout
-
       if (SUBMIT_ENDPOINT) {
         try {
           const payload = { ...data };
@@ -2574,28 +2581,39 @@
           const formBody = new URLSearchParams();
           formBody.append('payload', JSON.stringify(payload));
           await fetch(SUBMIT_ENDPOINT, { method: 'POST', mode: 'no-cors', body: formBody });
+          
+          showStep(10);
+          const ridEl = document.getElementById('thankYouResponseId');
+          if (ridEl) ridEl.textContent = data.response_id;
+          launchConfetti();
+
           const status = document.getElementById('submitStatus');
           if (status) {
             status.textContent = '✓ Response submitted successfully.';
             status.style.color = '#38A169';
           }
-          // Clear saved progress so a refresh starts a fresh form
+          // Clear saved progress only after successful submission
           localStorage.removeItem(STORAGE_KEY);
+          localStorage.removeItem(STORAGE_KEY + '_step');
         } catch (e) {
-          const status = document.getElementById('submitStatus');
-          if (status) {
-            status.textContent = '⚠ Network issue: please refresh and re-submit if possible.';
-            status.style.color = '#DD6B20';
-          }
+          showToast('⚠️ Network issue: please check your connection and retry.');
           // Re-enable button so user can retry
           if (btn) { btn.disabled = false; btn.textContent = 'Submit ✓'; }
         }
       } else {
+        // No submit endpoint, treat as local save and success
+        showStep(10);
+        const ridEl = document.getElementById('thankYouResponseId');
+        if (ridEl) ridEl.textContent = data.response_id;
+        launchConfetti();
+
         const status = document.getElementById('submitStatus');
         if (status) {
           status.textContent = 'ℹ Responses stored locally.';
           status.style.color = 'var(--muted)';
         }
+        localStorage.removeItem(STORAGE_KEY);
+        localStorage.removeItem(STORAGE_KEY + '_step');
       }
     }
 
