@@ -86,9 +86,12 @@
     .progress-bar {
       height: 100%;
       background: linear-gradient(90deg, var(--primary), var(--accent));
-      width: 0%;
+      width: 100%;
+      transform: scaleX(0);
+      transform-origin: left;
       border-radius: 100px;
-      transition: width 0.5s cubic-bezier(.4, 0, .2, 1);
+      transition: transform 0.5s cubic-bezier(.4, 0, .2, 1);
+      will-change: transform;
     }
 
     /* Card */
@@ -2002,7 +2005,7 @@
 
     function updateProgressBar() {
       const pct = Math.round((currentStep / (totalSteps - 1)) * 100);
-      document.getElementById('progressBar').style.width = pct + '%';
+      document.getElementById('progressBar').style.transform = `scaleX(${pct / 100})`;
       const pctEl = document.getElementById('progressPct');
       const counterEl = document.getElementById('qCounterText');
 
